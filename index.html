@@ -381,7 +381,7 @@
       </div>
     </div>
     <div class="hero-image">
-      <img src="hero.webp" alt="DA Strength Club" />
+     <img src="hero.webp" alt="DA Strength Club" loading="eager" fetchpriority="high">
       <div class="floating-badge">
         <div class="f-num">10<sup>+</sup></div>
         <div class="f-label">Years of Excellence</div>
@@ -403,8 +403,13 @@
       </div>
     </div>
     <div class="infra-images reveal reveal-d2">
-      <div class="img-slot"><img src="infra-img-1.webp" alt="DA Strength Club gym floor" /></div>
-      <div class="img-slot"><img src="infra-img-2.webp" alt="DA Strength Club equipment" /></div>
+      <div class="img-slot">
+  <img src="infra-img-1.webp" alt="DA Strength Club gym floor" loading="lazy" decoding="async">
+</div>
+
+<div class="img-slot">
+  <img src="infra-img-2.webp" alt="DA Strength Club equipment" loading="lazy" decoding="async">
+</div>
     </div>
   </section>
 
