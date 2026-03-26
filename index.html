@@ -63,6 +63,7 @@
     }
 
     img { display: block; width: 100%; object-fit: cover; }
+    .logo-slot img { width: auto; }
     a { text-decoration: none; color: inherit; }
 
     ::-webkit-scrollbar { width: 4px; }
@@ -153,8 +154,24 @@
       min-width: 0; /* allow shrink */
     }
 
-    .logo-slot { width: auto; height: auto; flex-shrink: 0; }
-    .logo-slot img { position: static; height: 72px; }
+    .logo-slot {
+      width: auto;
+      height: auto;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-slot img {
+      position: static;
+      height: 60px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    @media (min-width: 769px) {
+      .logo-slot img { height: 70px; }
+    }
 
     .brand-name {
       font-family: var(--ff-display);
@@ -1250,7 +1267,7 @@
       .hamburger { display: flex; }
       nav { display: none; }
 
-    header { padding: 0.9rem 4vw; }
+    header { padding: 0.7rem 5vw; }
 
       /* brand name always visible */
       .brand-name { font-size: clamp(0.95rem, 3.5vw, 2rem); }
