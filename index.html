@@ -154,17 +154,15 @@
     }
 
     .logo-slot { width: auto; height: auto; flex-shrink: 0; }
-    .logo-slot img { position: static; height: 54px; }
+    .logo-slot img { position: static; height: 72px; }
 
     .brand-name {
       font-family: var(--ff-display);
-      font-size: clamp(1.2rem, 3.5vw, 2rem);
+      font-size: clamp(1.3rem, 3vw, 2rem);
       letter-spacing: 0.2em;
       color: var(--cream);
       line-height: 1;
       white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
 
     /* ─── DESKTOP NAV ─────────────────────────────────────────── */
@@ -285,7 +283,7 @@
       min-height: 100svh;
       display: grid;
       grid-template-columns: 55% 45%;
-      padding-top: 80px;
+      padding-top: 100px;
       position: relative;
     }
 
@@ -1252,10 +1250,10 @@
       .hamburger { display: flex; }
       nav { display: none; }
 
-      header { padding: 0.9rem 4vw; }
+    header { padding: 0.9rem 4vw; }
 
-      /* Hide brand-name text on very narrow screens to prevent overflow */
-      .brand-name { display: none; }
+      /* brand name always visible */
+      .brand-name { font-size: clamp(0.95rem, 3.5vw, 2rem); }
 
       .hero-text { padding: 5rem 5vw 4rem; }
 
