@@ -51,11 +51,23 @@
     /* ─── HEADER ── */
     header { position: fixed; top: 0; width: 100%; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 5vw; background: rgba(12,39,32,0.88); backdrop-filter: blur(18px); border-bottom: 1px solid var(--rule); transition: background 0.4s, box-shadow 0.4s; }
     header.scrolled { background: rgba(12,39,32,0.97); box-shadow: 0 8px 48px rgba(0,0,0,0.35); }
-    .brand { display: flex; align-items: center; gap: 1rem; }
+    .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
     /* ── LOGO — ORIGINAL, UNTOUCHED ── */
-    .logo-slot { position: relative; width: 150px; height: 60px; display: flex; align-items: center; justify-content: flex-start; overflow: visible; }
-    .logo-slot img { position: absolute; left: -77px; top: -85px; height: 250px; width: auto; }
+   .logo-slot {
+  display: flex;
+  align-items: center;
+}
+
+.logo-slot img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}
 
     .brand-name {     
     font-family: var(--ff-display);
