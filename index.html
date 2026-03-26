@@ -3,19 +3,16 @@
 
 <head>
   <!-- Google tag (gtag.js) -->
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5H4853TEX4"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-5H4853TEX4');
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Da Strength Club</title>
-  <!-- ✅ ADD FAVICON HERE -->
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,52 +23,35 @@
   <style>
     /* ═══════════════════════════════════════════════════════════
        60 – 30 – 10 COLOUR SYSTEM
-       60 % → Midnight Jade  (dominant backgrounds & surfaces)
-       30 % → Golden         (secondary surfaces, borders, fills)
-       10 % → Off-white      (text, labels, sparks)
     ═══════════════════════════════════════════════════════════ */
     :root {
-      /* 60 % Midnight Jade */
       --jade: #0C2720;
       --jade-mid: #113328;
       --jade-light: #1A4535;
       --jade-hover: #1F5040;
-
-      /* 30 % Golden */
       --gold: #C9A84C;
       --gold-light: #DFC07A;
       --gold-dim: rgba(201, 168, 76, 0.18);
       --gold-border: rgba(201, 168, 76, 0.35);
-
-      /* 10 % Off-white */
       --cream: #F2EAD8;
       --cream-muted: rgba(242, 234, 216, 0.55);
       --cream-ghost: rgba(242, 234, 216, 0.12);
-
-      /* Utility */
       --rule: rgba(201, 168, 76, 0.2);
       --shadow-jade: 0 24px 64px rgba(12, 39, 32, 0.7);
-
-      /* Typography */
       --ff-display: 'Bebas Neue', sans-serif;
       --ff-serif: 'Cormorant Garamond', serif;
       --ff-body: 'Jost', sans-serif;
-
       --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     /* ─── RESET ───────────────────────────────────────────────── */
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       background: var(--jade);
@@ -82,29 +62,12 @@
       overflow-x: hidden;
     }
 
-    img {
-      display: block;
-      width: 100%;
-      object-fit: cover;
-    }
+    img { display: block; width: 100%; object-fit: cover; }
+    a { text-decoration: none; color: inherit; }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    ::-webkit-scrollbar {
-      width: 4px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--jade);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--gold);
-      border-radius: 2px;
-    }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--jade); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
 
     /* ─── LOADER ──────────────────────────────────────────────── */
     #loader {
@@ -118,13 +81,10 @@
       gap: 2rem;
       z-index: 9999;
       transition: opacity 0.9s var(--ease-out), visibility 0.9s;
+      padding: 1rem;
     }
 
-    #loader.done {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
+    #loader.done { opacity: 0; visibility: hidden; pointer-events: none; }
 
     .loader-bar-track {
       width: 200px;
@@ -146,14 +106,13 @@
 
     .loader-wordmark {
       font-family: var(--ff-display);
-      font-size: clamp(1.6rem, 4vw, 3.2rem);
+      font-size: clamp(1.4rem, 6vw, 3.2rem);
       letter-spacing: 0.3em;
       color: var(--cream);
+      text-align: center;
     }
 
-    .loader-wordmark span {
-      color: var(--gold);
-    }
+    .loader-wordmark span { color: var(--gold); }
 
     .loader-sub {
       font-size: 0.6rem;
@@ -163,21 +122,8 @@
       animation: fade-in 1s 0.5s both;
     }
 
-    @keyframes fill-bar {
-      to {
-        left: 0;
-      }
-    }
-
-    @keyframes fade-in {
-      from {
-        opacity: 0;
-      }
-
-      to {
-        opacity: 1;
-      }
-    }
+    @keyframes fill-bar { to { left: 0; } }
+    @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
 
     /* ─── HEADER ──────────────────────────────────────────────── */
     header {
@@ -188,7 +134,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1.2rem 5vw;
+      padding: 1rem 5vw;
       background: rgba(12, 39, 32, 0.88);
       backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--rule);
@@ -203,46 +149,25 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.75rem;
+      min-width: 0; /* allow shrink */
     }
 
-    /* ╔═══════════════════════════════════════════════════════╗
-       ║   LOGO SLOT — swap <span>DA</span> for your logo:    ║
-       ║   <img src="your-logo.png" alt="DA Strength Club" /> ║
-       ╚═══════════════════════════════════════════════════════╝ */
-    .logo-slot {
-      position: relative;
-      width: 120px;
-      /* control space */
-      height: 60px;
-      /* control height */
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      overflow: visible;
-    }
-
-    .logo-slot img {
-      position: absolute;
-      left: -77px;
-      /* move horizontally */
-      top: -85px;
-      /* move vertically */
-      height: 250px;
-      /* size */
-      width: auto;
-    }
-
-    /* ─────────────────────────────────────────────────────── */
+    .logo-slot { width: auto; height: auto; flex-shrink: 0; }
+    .logo-slot img { position: static; height: 44px; }
 
     .brand-name {
       font-family: var(--ff-display);
-      font-size: 2rem;
-      letter-spacing: 0.25em;
+      font-size: clamp(1.2rem, 3.5vw, 2rem);
+      letter-spacing: 0.2em;
       color: var(--cream);
       line-height: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
+    /* ─── DESKTOP NAV ─────────────────────────────────────────── */
     nav {
       display: flex;
       gap: 2.8rem;
@@ -268,12 +193,91 @@
       transition: width 0.35s var(--ease-out);
     }
 
-    nav a:hover {
-      color: var(--gold);
+    nav a:hover { color: var(--gold); }
+    nav a:hover::after { width: 100%; }
+
+    /* ─── HAMBURGER BUTTON ────────────────────────────────────── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      z-index: 200;
+      flex-shrink: 0;
     }
 
-    nav a:hover::after {
-      width: 100%;
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--cream);
+      transition: transform 0.35s var(--ease-out), opacity 0.25s, background 0.25s;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(6.5px) rotate(45deg);
+      background: var(--gold);
+    }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-6.5px) rotate(-45deg);
+      background: var(--gold);
+    }
+
+    /* ─── MOBILE NAV DRAWER ───────────────────────────────────── */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      top: 0;
+      background: rgba(12, 39, 32, 0.98);
+      backdrop-filter: blur(24px);
+      z-index: 90;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      opacity: 0;
+      transform: translateY(-16px);
+      transition: opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out);
+      pointer-events: none;
+    }
+
+    .mobile-nav.open {
+      display: flex;
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
+    }
+
+    .mobile-nav a {
+      font-family: var(--ff-display);
+      font-size: clamp(2rem, 8vw, 3.5rem);
+      letter-spacing: 0.18em;
+      color: var(--cream-muted);
+      text-transform: uppercase;
+      transition: color 0.25s;
+    }
+
+    .mobile-nav a:hover { color: var(--gold); }
+
+    .mobile-nav-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.4;
+    }
+
+    .mobile-nav-sub {
+      font-size: 0.6rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.6;
+      margin-top: -1rem;
     }
 
     /* ─── HERO ────────────────────────────────────────────────── */
@@ -323,11 +327,13 @@
       width: 36px;
       height: 1px;
       background: var(--gold);
+      flex-shrink: 0;
     }
 
     .hero-title {
       font-family: var(--ff-display);
-      font-size: clamp(5rem, 9.5vw, 11rem);
+      /* FIX: was 5rem min — too large on 320–375px phones */
+      font-size: clamp(3.4rem, 9.5vw, 11rem);
       letter-spacing: 0.02em;
       line-height: 0.88;
       color: var(--cream);
@@ -335,11 +341,7 @@
       animation: slide-up 0.9s 0.9s var(--ease-out) forwards;
     }
 
-    .hero-title .gold-line {
-      color: var(--gold);
-      display: block;
-    }
-
+    .hero-title .gold-line { color: var(--gold); display: block; }
     .hero-title .outlined {
       -webkit-text-stroke: 1px var(--cream-muted);
       color: transparent;
@@ -349,7 +351,7 @@
     .hero-sub {
       margin-top: 2.2rem;
       font-family: var(--ff-serif);
-      font-size: clamp(1rem, 1.4vw, 1.2rem);
+      font-size: clamp(0.95rem, 1.4vw, 1.2rem);
       font-style: italic;
       color: var(--cream-muted);
       max-width: 38ch;
@@ -365,6 +367,7 @@
       display: flex;
       gap: 1.4rem;
       align-items: center;
+      flex-wrap: wrap;
       opacity: 0;
       animation: slide-up 0.9s 1.3s var(--ease-out) forwards;
     }
@@ -382,6 +385,7 @@
       cursor: pointer;
       transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
       clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+      display: inline-block;
     }
 
     .btn-gold:hover {
@@ -401,41 +405,36 @@
       border: 1px solid var(--cream-ghost);
       cursor: pointer;
       transition: color 0.3s, border-color 0.3s;
+      display: inline-block;
     }
 
-    .btn-outline:hover {
-      color: var(--cream);
-      border-color: var(--cream-muted);
-    }
+    .btn-outline:hover { color: var(--cream); border-color: var(--cream-muted); }
 
-    .hero-image {
-      position: relative;
-      overflow: hidden;
-    }
+    .hero-image { position: relative; overflow: hidden; }
 
     .hero-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center;
-      transform: none;
     }
 
     .hero-image::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(100deg, rgba(12,39,32,0.75) 0%, rgba(12,39,32,0.05) 50%, transparent 100%);
-}
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(100deg, rgba(12,39,32,0.75) 0%, rgba(12,39,32,0.05) 50%, transparent 100%);
+    }
 
-.hero-image::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(180deg, transparent 75%, rgba(12,39,32,0.65) 100%);
-}
+    .hero-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(180deg, transparent 75%, rgba(12,39,32,0.65) 100%);
+    }
+
     .floating-badge {
       position: absolute;
       bottom: 5rem;
@@ -467,21 +466,8 @@
     }
 
     @keyframes slide-up {
-      from {
-        opacity: 0;
-        transform: translateY(30px)
-      }
-
-      to {
-        opacity: 1;
-        transform: none
-      }
-    }
-
-    @keyframes zoom-settle {
-      to {
-        transform: scale(1);
-      }
+      from { opacity: 0; transform: translateY(30px) }
+      to { opacity: 1; transform: none }
     }
 
     /* ─── SECTION BASE ────────────────────────────────────────── */
@@ -507,11 +493,12 @@
       width: 28px;
       height: 1px;
       background: var(--gold);
+      flex-shrink: 0;
     }
 
     .section-title {
       font-family: var(--ff-display);
-      font-size: clamp(3rem, 5.5vw, 7rem);
+      font-size: clamp(2.8rem, 5.5vw, 7rem);
       letter-spacing: 0.04em;
       line-height: 0.92;
       color: var(--cream);
@@ -538,27 +525,11 @@
       transform: translateY(44px);
       transition: opacity 0.95s var(--ease-out), transform 0.95s var(--ease-out);
     }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    .reveal-d1 {
-      transition-delay: 0.12s;
-    }
-
-    .reveal-d2 {
-      transition-delay: 0.24s;
-    }
-
-    .reveal-d3 {
-      transition-delay: 0.36s;
-    }
-
-    .reveal-d4 {
-      transition-delay: 0.48s;
-    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-d1 { transition-delay: 0.12s; }
+    .reveal-d2 { transition-delay: 0.24s; }
+    .reveal-d3 { transition-delay: 0.36s; }
+    .reveal-d4 { transition-delay: 0.48s; }
 
     /* ─── GOLD DIVIDER ────────────────────────────────────────── */
     .gold-divider {
@@ -627,11 +598,7 @@
       margin-bottom: 0.5rem;
     }
 
-    .infra-card p {
-      font-size: 0.78rem;
-      color: var(--cream-muted);
-      line-height: 1.65;
-    }
+    .infra-card p { font-size: 0.78rem; color: var(--cream-muted); line-height: 1.65; }
 
     .infra-images {
       display: grid;
@@ -640,20 +607,9 @@
       height: 620px;
     }
 
-    .img-slot {
-      overflow: hidden;
-      position: relative;
-    }
-
-    .img-slot img {
-      height: 100%;
-      transition: transform 0.8s var(--ease-out);
-    }
-
-    .img-slot:hover img {
-      transform: scale(1.06);
-    }
-
+    .img-slot { overflow: hidden; position: relative; }
+    .img-slot img { height: 100%; transition: transform 0.8s var(--ease-out); }
+    .img-slot:hover img { transform: scale(1.06); }
     .img-slot::after {
       content: '';
       position: absolute;
@@ -670,6 +626,8 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 2rem;
       position: relative;
+      /* FIX: prevent watermark from causing overflow */
+      overflow: hidden;
     }
 
     .stats-bar::before {
@@ -686,12 +644,11 @@
       pointer-events: none;
     }
 
-    .stat-item {
-      position: relative;
-      z-index: 1;
-    }
+    .stat-item { position: relative; z-index: 1; }
 
-    .stat-item+.stat-item {
+    /* FIX: Original used + selector which applies to items 2,3,4 even in 2-col grid.
+       We now manage borders via nth-child so only even items get a border-left. */
+    .stat-item + .stat-item {
       border-left: 1px solid rgba(12, 39, 32, 0.2);
       padding-left: 2.5rem;
     }
@@ -704,10 +661,7 @@
       letter-spacing: 0.03em;
     }
 
-    .s-num sup {
-      font-size: 0.4em;
-      vertical-align: super;
-    }
+    .s-num sup { font-size: 0.4em; vertical-align: super; }
 
     .s-label {
       font-size: 0.62rem;
@@ -718,9 +672,7 @@
     }
 
     /* ─── TRAINING ────────────────────────────────────────────── */
-    #training {
-      background: var(--jade);
-    }
+    #training { background: var(--jade); }
 
     #training::before {
       content: '';
@@ -771,27 +723,13 @@
       box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
     }
 
-    .training-card:hover::before {
-      transform: scaleX(1);
-    }
+    .training-card:hover::before { transform: scaleX(1); }
 
-    .tc-img {
-      height: 270px;
-      overflow: hidden;
-    }
+    .tc-img { height: 270px; overflow: hidden; }
+    .tc-img img { height: 100%; transition: transform 0.8s var(--ease-out); }
+    .training-card:hover .tc-img img { transform: scale(1.08); }
 
-    .tc-img img {
-      height: 100%;
-      transition: transform 0.8s var(--ease-out);
-    }
-
-    .training-card:hover .tc-img img {
-      transform: scale(1.08);
-    }
-
-    .tc-body {
-      padding: 2rem 1.8rem;
-    }
+    .tc-body { padding: 2rem 1.8rem; }
 
     .tc-number {
       font-family: var(--ff-display);
@@ -811,11 +749,7 @@
       margin-bottom: 0.7rem;
     }
 
-    .training-card p {
-      font-size: 0.8rem;
-      color: var(--cream-muted);
-      line-height: 1.7;
-    }
+    .training-card p { font-size: 0.8rem; color: var(--cream-muted); line-height: 1.7; }
 
     .tc-pill {
       display: inline-flex;
@@ -840,9 +774,7 @@
     }
 
     /* ─── UNIQUENESS ──────────────────────────────────────────── */
-    #uniqueness {
-      background: var(--jade-light);
-    }
+    #uniqueness { background: var(--jade-light); }
 
     #uniqueness::before {
       content: '';
@@ -860,10 +792,7 @@
       align-items: start;
     }
 
-    .unique-pillars {
-      display: flex;
-      flex-direction: column;
-    }
+    .unique-pillars { display: flex; flex-direction: column; }
 
     .pillar {
       padding: 2.2rem 0;
@@ -873,9 +802,7 @@
       position: relative;
     }
 
-    .pillar:first-child {
-      border-top: 1px solid var(--rule);
-    }
+    .pillar:first-child { border-top: 1px solid var(--rule); }
 
     .pillar::before {
       content: '';
@@ -889,13 +816,8 @@
       transition: width 0.4s var(--ease-out);
     }
 
-    .pillar:hover {
-      padding-left: 1.2rem;
-    }
-
-    .pillar:hover::before {
-      width: 3px;
-    }
+    .pillar:hover { padding-left: 1.2rem; }
+    .pillar:hover::before { width: 3px; }
 
     .p-num {
       font-family: var(--ff-display);
@@ -914,20 +836,10 @@
       transition: color 0.3s;
     }
 
-    .pillar:hover h4 {
-      color: var(--gold);
-    }
+    .pillar:hover h4 { color: var(--gold); }
+    .pillar p { font-size: 0.8rem; color: var(--cream-muted); line-height: 1.7; }
 
-    .pillar p {
-      font-size: 0.8rem;
-      color: var(--cream-muted);
-      line-height: 1.7;
-    }
-
-    .unique-visual {
-      position: sticky;
-      top: 120px;
-    }
+    .unique-visual { position: sticky; top: 120px; }
 
     .u-main-img {
       width: 100%;
@@ -938,14 +850,8 @@
       margin-bottom: 2rem;
     }
 
-    .u-main-img img {
-      height: 100%;
-      transition: transform 0.8s var(--ease-out);
-    }
-
-    .u-main-img:hover img {
-      transform: scale(1.04);
-    }
+    .u-main-img img { height: 100%; transition: transform 0.8s var(--ease-out); }
+    .u-main-img:hover img { transform: scale(1.04); }
 
     .u-main-img::after {
       content: '';
@@ -992,17 +898,9 @@
       opacity: 0.08;
     }
 
-    .marquee-item.g {
-      color: var(--gold);
-      opacity: 0.6;
-      font-size: 1rem;
-    }
+    .marquee-item.g { color: var(--gold); opacity: 0.6; font-size: 1rem; }
 
-    @keyframes marquee {
-      to {
-        transform: translateX(-50%);
-      }
-    }
+    @keyframes marquee { to { transform: translateX(-50%); } }
 
     /* ─── FOOTER ──────────────────────────────────────────────── */
     footer {
@@ -1034,24 +932,18 @@
       gap: 3rem;
     }
 
-    .footer-brand .brand-name {
-      font-size: 1.8rem;
-      color: var(--cream);
-    }
+    .footer-brand .brand-name { font-size: 1.8rem; color: var(--cream); }
 
+    /* FIX: was font-size: xx-large — not responsive */
     .footer-tagline {
       font-family: var(--ff-serif);
       font-style: italic;
-      font-size: xx-large;
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
       color: var(--cream-muted);
       margin-top: 0.6rem;
     }
 
-    .footer-links {
-      display: flex;
-      gap: 5rem;
-      flex-wrap: wrap;
-    }
+    .footer-links { display: flex; gap: 5rem; flex-wrap: wrap; }
 
     .footer-col h5 {
       font-size: 0.6rem;
@@ -1075,9 +967,7 @@
       cursor: pointer;
     }
 
-    .footer-col ul li:hover {
-      color: var(--cream);
-    }
+    .footer-col ul li:hover { color: var(--cream); }
 
     .footer-bottom {
       padding-top: 2.5rem;
@@ -1088,17 +978,8 @@
       gap: 1rem;
     }
 
-    .footer-bottom p {
-      font-size: 0.7rem;
-      color: rgba(242, 234, 216, 0.25);
-    }
-
-    .footer-mark {
-      font-family: var(--ff-display);
-      font-size: 0.8rem;
-      letter-spacing: 0.3em;
-      color: rgba(201, 168, 76, 0.2);
-    }
+    .footer-bottom p { font-size: 0.7rem; color: rgba(242, 234, 216, 0.25); }
+    .footer-mark { font-family: var(--ff-display); font-size: 0.8rem; letter-spacing: 0.3em; color: rgba(201, 168, 76, 0.2); }
 
     /* ─── ENQUIRY SECTION ────────────────────────────────────── */
     #enquiry {
@@ -1117,11 +998,7 @@
       pointer-events: none;
     }
 
-    /* Left info panel */
-    .enquiry-info {
-      position: relative;
-      z-index: 1;
-    }
+    .enquiry-info { position: relative; z-index: 1; }
 
     .enquiry-contact-cards {
       display: flex;
@@ -1143,10 +1020,7 @@
       color: inherit;
     }
 
-    .contact-card:hover {
-      background: var(--jade-light);
-      border-color: var(--gold-border);
-    }
+    .contact-card:hover { background: var(--jade-light); border-color: var(--gold-border); }
 
     .contact-card .cc-icon {
       width: 44px;
@@ -1172,13 +1046,10 @@
       font-size: 0.88rem;
       color: var(--cream);
       font-weight: 400;
+      word-break: break-word;
     }
 
-    /* Right form panel */
-    .enquiry-form-wrap {
-      position: relative;
-      z-index: 1;
-    }
+    .enquiry-form-wrap { position: relative; z-index: 1; }
 
     .form-card {
       background: var(--jade);
@@ -1197,11 +1068,7 @@
       background: var(--gold);
     }
 
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.2rem;
-    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
 
     .form-group {
       display: flex;
@@ -1231,27 +1098,18 @@
       transition: border-color 0.3s, background 0.3s;
       width: 100%;
       appearance: none;
+      -webkit-appearance: none;
     }
 
     .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: var(--cream-muted);
-      opacity: 0.5;
-    }
+    .form-group textarea::placeholder { color: var(--cream-muted); opacity: 0.5; }
 
     .form-group input:focus,
     .form-group textarea:focus,
-    .form-group select:focus {
-      border-color: var(--gold);
-      background: var(--jade-light);
-    }
+    .form-group select:focus { border-color: var(--gold); background: var(--jade-light); }
 
-    .form-group textarea {
-      resize: none;
-      height: 110px;
-    }
+    .form-group textarea { resize: none; height: 110px; }
 
-    /* Submit row */
     .form-submit-row {
       display: flex;
       gap: 1rem;
@@ -1262,6 +1120,7 @@
 
     .btn-submit {
       flex: 1;
+      min-width: 140px;
       padding: 1rem 2rem;
       background: var(--gold);
       color: var(--jade);
@@ -1298,6 +1157,7 @@
       align-items: center;
       justify-content: center;
       text-decoration: none;
+      flex-shrink: 0;
     }
 
     .btn-whatsapp:hover {
@@ -1316,33 +1176,18 @@
       border-left: 3px solid var(--gold);
       padding: 1.2rem 1.8rem;
       z-index: 9000;
-      min-width: 280px;
+      min-width: 260px;
+      max-width: calc(100vw - 5rem);
       transform: translateY(20px);
       opacity: 0;
       transition: all 0.5s var(--ease-out);
       pointer-events: none;
     }
 
-    .toast.show {
-      transform: none;
-      opacity: 1;
-      pointer-events: auto;
-    }
+    .toast.show { transform: none; opacity: 1; pointer-events: auto; }
+    .toast .t-title { font-family: var(--ff-display); font-size: 1rem; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 0.3rem; }
+    .toast .t-msg { font-size: 0.78rem; color: var(--cream-muted); }
 
-    .toast .t-title {
-      font-family: var(--ff-display);
-      font-size: 1rem;
-      letter-spacing: 0.1em;
-      color: var(--gold);
-      margin-bottom: 0.3rem;
-    }
-
-    .toast .t-msg {
-      font-size: 0.78rem;
-      color: var(--cream-muted);
-    }
-
-    /* Form success state */
     .form-success {
       display: none;
       flex-direction: column;
@@ -1353,13 +1198,8 @@
       gap: 1rem;
     }
 
-    .form-success.active {
-      display: flex;
-    }
-
-    .form-success .fs-icon {
-      font-size: 3rem;
-    }
+    .form-success.active { display: flex; }
+    .form-success .fs-icon { font-size: 3rem; }
 
     .form-success h4 {
       font-family: var(--ff-display);
@@ -1368,17 +1208,17 @@
       color: var(--gold);
     }
 
-    .form-success p {
-      font-size: 0.82rem;
-      color: var(--cream-muted);
-      max-width: 30ch;
-      line-height: 1.6;
-    }
+    .form-success p { font-size: 0.82rem; color: var(--cream-muted); max-width: 30ch; line-height: 1.6; }
 
-    /* ─── RESPONSIVE ──────────────────────────────────────────── */
+    /* ═══════════════════════════════════════════════════════════
+       RESPONSIVE BREAKPOINTS
+    ═══════════════════════════════════════════════════════════ */
+
+    /* ── 1100px ───────────────────────────────────────────────── */
     @media (max-width: 1100px) {
       #infrastructure {
         grid-template-columns: 1fr;
+        gap: 4rem;
       }
 
       .infra-images {
@@ -1386,17 +1226,10 @@
         grid-template-rows: 1fr 1fr;
       }
 
-      .training-cards {
-        grid-template-columns: 1fr 1fr;
-      }
+      .training-cards { grid-template-columns: 1fr 1fr; }
 
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-image {
-        display: none;
-      }
+      .hero { grid-template-columns: 1fr; }
+      .hero-image { display: none; }
 
       .hero-text {
         padding: 5rem 6vw;
@@ -1408,53 +1241,118 @@
         gap: 4rem;
       }
 
-      .unique-visual {
-        position: static;
-      }
+      .unique-visual { position: static; }
 
-      .stats-bar {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
     }
 
+    /* ── 768px ────────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      /* Show hamburger, hide desktop nav */
+      .hamburger { display: flex; }
+      nav { display: none; }
+
+      header { padding: 0.9rem 4vw; }
+
+      /* Hide brand-name text on very narrow screens to prevent overflow */
+      .brand-name { display: none; }
+
+      .hero-text { padding: 5rem 5vw 4rem; }
+
+      .hero-eyebrow { margin-bottom: 1.2rem; }
+
+      .hero-sub { margin-top: 1.6rem; }
+
+      .hero-cta { margin-top: 2rem; gap: 1rem; }
+
+      .btn-gold,
+      .btn-outline { padding: 0.85rem 2rem; width: 100%; text-align: center; }
+
+      .hero-cta { flex-direction: column; align-items: flex-start; }
+
+      .training-header { margin-bottom: 2.5rem; }
+
+      .unique-grid { gap: 3rem; }
+
+      .u-main-img { height: 320px; }
+
+      .footer-links { gap: 2.5rem; }
+
+      .footer-top { gap: 2rem; }
+    }
+
+    /* ── 640px ────────────────────────────────────────────────── */
     @media (max-width: 640px) {
-      section {
-        padding: 5rem 5vw;
-      }
+      section { padding: 5rem 5vw; }
 
-      nav {
-        display: none;
-      }
-
-      .training-cards {
-        grid-template-columns: 1fr;
-      }
-
-      .infra-grid {
-        grid-template-columns: 1fr;
-      }
-
+      /* Stats bar: FIX border logic for 2-column grid.
+         In a 4-item 2-col grid:
+         Row 1 → items 1 (odd) and 2 (even)
+         Row 2 → items 3 (odd) and 4 (even)
+         Only even items should have border-left.
+         The default `+` selector wrongly adds border to items 2, 3, and 4. */
       .stats-bar {
         grid-template-columns: 1fr 1fr;
         padding: 3rem 5vw;
       }
 
-      .footer-links {
-        gap: 2.5rem;
+      /* Remove the + rule's side-effect for item 3 (odd in 2-col row 2) */
+      .stat-item + .stat-item {
+        border-left: none;
+        padding-left: 0;
       }
 
-      .form-row {
-        grid-template-columns: 1fr;
+      /* Only the 2nd and 4th items (right column) get a border */
+      .stat-item:nth-child(2),
+      .stat-item:nth-child(4) {
+        border-left: 1px solid rgba(12, 39, 32, 0.2);
+        padding-left: 1.5rem;
       }
+
+      /* Hide watermark on small screens — it bleeds out */
+      .stats-bar::before { display: none; }
+
+      .training-cards { grid-template-columns: 1fr; }
+
+      .infra-grid { grid-template-columns: 1fr; }
+
+      .footer-links { gap: 2rem; flex-direction: column; }
+
+      .form-row { grid-template-columns: 1fr; }
 
       #enquiry {
         grid-template-columns: 1fr;
-        gap: 4rem;
+        gap: 3rem;
       }
 
-      .form-card {
-        padding: 2rem 1.5rem;
+      .form-card { padding: 2rem 1.4rem; }
+
+      .toast {
+        left: 1rem;
+        right: 1rem;
+        min-width: unset;
+        max-width: unset;
+        bottom: 1.5rem;
       }
+
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+    }
+
+    /* ── 420px ────────────────────────────────────────────────── */
+    @media (max-width: 420px) {
+      section { padding: 4rem 4vw; }
+
+      .hero-title { line-height: 0.9; }
+
+      .training-card .tc-img { height: 220px; }
+
+      .contact-card { padding: 1.2rem 1rem; gap: 1rem; }
+
+      .infra-card { padding: 1.5rem 1.2rem; }
+
+      .form-submit-row { flex-direction: column; }
+      .btn-submit { width: 100%; }
+      .btn-whatsapp { width: 100%; padding: 1rem; }
     }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -1471,27 +1369,41 @@
     <p class="loader-sub">Strength &amp; Conditioning</p>
   </div>
 
+  <!-- ── MOBILE NAV DRAWER ──────────────────────────────────── -->
+  <nav class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Main navigation">
+    <a href="#infrastructure" class="mobile-nav-link">Infrastructure</a>
+    <div class="mobile-nav-divider"></div>
+    <a href="#training" class="mobile-nav-link">Training</a>
+    <div class="mobile-nav-divider"></div>
+    <a href="#uniqueness" class="mobile-nav-link">Uniqueness</a>
+    <div class="mobile-nav-divider"></div>
+    <a href="#enquiry" class="mobile-nav-link">Enquire</a>
+    <p class="mobile-nav-sub">Da Strength Club · Kolkata</p>
+  </nav>
+
   <!-- ── HEADER ─────────────────────────────────────────────── -->
   <header id="site-header">
     <div class="brand">
-
-      <!-- ╔═════════════════════════════════════════════════════╗ -->
-      <!-- ║   LOGO SLOT — replace <span>DA</span> with:        ║ -->
-      <!-- ║   <img src="your-logo.png" alt="DA SC" />          ║ -->
       <div class="logo-slot">
         <img src="logo.png" alt="DA Strength Club" />
-        <!-- YOUR LOGO HERE -->
       </div>
-      <!-- ╚═════════════════════════════════════════════════════╝ -->
-
       <span class="brand-name">DA STRENGTH CLUB</span>
     </div>
-    <nav>
+
+    <!-- Desktop nav -->
+    <nav id="desktop-nav">
       <a href="#infrastructure">Infrastructure</a>
       <a href="#training">Training</a>
       <a href="#uniqueness">Uniqueness</a>
       <a href="#enquiry">Enquire</a>
     </nav>
+
+    <!-- Hamburger (mobile only) -->
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </header>
 
   <!-- ── HERO ───────────────────────────────────────────────── -->
@@ -1513,7 +1425,7 @@
       </div>
     </div>
     <div class="hero-image">
-      <img src="hero.webp"alt="DA Strength Club" />
+      <img src="hero.webp" alt="DA Strength Club" />
       <div class="floating-badge">
         <div class="f-num">10<sup>+</sup></div>
         <div class="f-label">Years of Excellence</div>
@@ -1596,17 +1508,16 @@
     </div>
     <div class="training-cards">
       <div class="training-card reveal">
-        <div class="tc-img"><img src="train-img-1.jpg"alt="Strength Training" /></div>
+        <div class="tc-img"><img src="train-img-1.jpg" alt="Strength Training" /></div>
         <div class="tc-body">
           <div class="tc-number">01</div>
           <h3>STRENGTH TRAINING</h3>
-          <p>Periodised barbell programming focused on progressive overload — squat, deadlift, bench, and overhead done
-            right.</p>
+          <p>Periodised barbell programming focused on progressive overload — squat, deadlift, bench, and overhead done right.</p>
           <span class="tc-pill">Powerlifting · Weightlifting</span>
         </div>
       </div>
       <div class="training-card reveal reveal-d1">
-        <div class="tc-img"><img src="train-img-2.webp"alt="Conditioning" /></div>
+        <div class="tc-img"><img src="train-img-2.webp" alt="Conditioning" /></div>
         <div class="tc-body">
           <div class="tc-number">02</div>
           <h3>CONDITIONING</h3>
@@ -1615,12 +1526,11 @@
         </div>
       </div>
       <div class="training-card reveal reveal-d2">
-        <div class="tc-img"><img src="train-img-3.webp"alt="Personal Coaching" /></div>
+        <div class="tc-img"><img src="train-img-3.webp" alt="Personal Coaching" /></div>
         <div class="tc-body">
           <div class="tc-number">03</div>
           <h3>PERSONAL COACHING</h3>
-          <p>One-on-one sessions tailored to your exact goals — technique, programming, and accountability all in one.
-          </p>
+          <p>One-on-one sessions tailored to your exact goals — technique, programming, and accountability all in one.</p>
           <span class="tc-pill">1-on-1 · Small Group</span>
         </div>
       </div>
@@ -1671,19 +1581,17 @@
         <div class="pillar">
           <div class="p-num">04</div>
           <h4>PREMIUM ENVIRONMENT</h4>
-          <p>Clean, well-maintained, intentionally designed — a space that respects your time and elevates your
-            training.</p>
+          <p>Clean, well-maintained, intentionally designed — a space that respects your time and elevates your training.</p>
         </div>
         <div class="pillar">
           <div class="p-num">05</div>
           <h4>RESULTS-DRIVEN APPROACH</h4>
-          <p>We track. We test. We adjust. Your progress is visible, measurable, and celebrated every step of the way.
-          </p>
+          <p>We track. We test. We adjust. Your progress is visible, measurable, and celebrated every step of the way.</p>
         </div>
       </div>
       <div class="unique-visual reveal reveal-d3">
         <div class="u-main-img">
-          <img src="unique-img.webp"alt="DA Strength Club culture" />
+          <img src="unique-img.webp" alt="DA Strength Club culture" />
         </div>
         <p class="u-caption">
           "Strength is not given. It is built — rep by rep, session by session, with intention."
@@ -1696,8 +1604,6 @@
 
   <!-- ── ENQUIRY SECTION ────────────────────────────────────── -->
   <section id="enquiry">
-
-    <!-- LEFT — info + contact channels -->
     <div class="enquiry-info">
       <p class="section-tag reveal">Get In Touch</p>
       <h2 class="section-title reveal reveal-d1">
@@ -1706,10 +1612,7 @@
       <p class="section-intro reveal reveal-d2">
         Ready to train with purpose? Drop us an enquiry and our team will reach out within 24 hours.
       </p>
-
       <div class="enquiry-contact-cards reveal reveal-d3">
-        <!-- ╔══════════════════════════════════════════════════════════╗ -->
-        <!-- ║  Replace YOUR_EMAIL with your actual email address      ║ -->
         <a class="contact-card" href="mailto:dastrengthclub@gmail.com">
           <div class="cc-icon">✉️</div>
           <div class="cc-text">
@@ -1717,9 +1620,6 @@
             <div class="cc-value">dastrengthclub@gmail.com</div>
           </div>
         </a>
-        <!-- ║  Replace 91XXXXXXXXXX with your WhatsApp number         ║ -->
-        <!-- ║  Format: country code + number, no spaces or + sign     ║ -->
-        <!-- ║  Example India +91 98765 43210 → 919876543210           ║ -->
         <a class="contact-card" href="https://wa.me/916291655507" target="_blank" rel="noopener">
           <div class="cc-icon">💬</div>
           <div class="cc-text">
@@ -1727,9 +1627,7 @@
             <div class="cc-value">+91 6291655507</div>
           </div>
         </a>
-        <!-- ╚══════════════════════════════════════════════════════════╝ -->
-        <div class="contact-card" onclick="window.open('https://maps.app.goo.gl/Z9QD5MHbkbqB3L8A9', '_blank')"
-          style="cursor: pointer;">
+        <div class="contact-card" onclick="window.open('https://maps.app.goo.gl/Z9QD5MHbkbqB3L8A9', '_blank')" style="cursor: pointer;">
           <div class="cc-icon">📍</div>
           <div class="cc-text">
             <div class="cc-label">Find Us</div>
@@ -1739,27 +1637,15 @@
       </div>
     </div>
 
-    <!-- RIGHT — enquiry form -->
     <div class="enquiry-form-wrap reveal reveal-d2">
       <div class="form-card">
-
-        <!-- SUCCESS STATE (shown after submit) -->
         <div class="form-success" id="form-success">
           <div class="fs-icon">✦</div>
           <h4>ENQUIRY SENT</h4>
           <p>We'll be in touch within 24 hours. Check your WhatsApp too!</p>
         </div>
 
-        <!-- FORM FIELDS -->
         <div id="form-body">
-          <!-- ╔═══════════════════════════════════════════════════════╗ -->
-          <!-- ║  FORMSPREE SETUP (for email delivery)                ║ -->
-          <!-- ║  1. Go to https://formspree.io and sign up free      ║ -->
-          <!-- ║  2. Create a new form and copy the endpoint URL      ║ -->
-          <!-- ║  3. Replace YOUR_FORMSPREE_ID below with your ID     ║ -->
-          <!-- ║  Example: action="https://formspree.io/f/abcd1234"   ║ -->
-          <!-- ╚═══════════════════════════════════════════════════════╝ -->
-
           <div class="form-row">
             <div class="form-group">
               <label for="f-name">Full Name</label>
@@ -1790,21 +1676,16 @@
 
           <div class="form-group">
             <label for="f-msg">Message</label>
-            <textarea id="f-msg" name="message"
-              placeholder="Tell us about your goals, current fitness level, or anything you'd like us to know…"></textarea>
+            <textarea id="f-msg" name="message" placeholder="Tell us about your goals, current fitness level, or anything you'd like us to know…"></textarea>
           </div>
 
           <div class="form-submit-row">
-            <!-- Email submit button -->
             <button class="btn-submit" id="btn-email-submit" type="button">
               <span>✉</span> Send Enquiry
             </button>
-            <!-- WhatsApp button — sends form data directly to WhatsApp -->
             <button class="btn-whatsapp" id="btn-wa" type="button" title="Send via WhatsApp">
-              <!-- WhatsApp SVG icon -->
               <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
               </svg>
             </button>
           </div>
@@ -1812,11 +1693,9 @@
           <p style="font-size:0.65rem;color:var(--cream-muted);opacity:0.5;margin-top:1.2rem;line-height:1.5;">
             By submitting, you agree to be contacted by DA Strength Club. We respect your privacy.
           </p>
-        </div><!-- /#form-body -->
-
-      </div><!-- /.form-card -->
+        </div>
+      </div>
     </div>
-
   </section>
 
   <div class="gold-divider"></div>
@@ -1826,13 +1705,13 @@
     <div class="t-title">ENQUIRY RECEIVED ✦</div>
     <div class="t-msg" id="toast-msg">We'll get back to you shortly.</div>
   </div>
+
   <footer>
     <div class="footer-top">
       <div class="footer-brand">
         <div class="brand" style="margin-bottom:0.7rem">
           <div class="logo-slot">
             <img src="logo.png" alt="DA Strength Club" />
-            <!-- YOUR LOGO HERE -->
           </div>
           <span class="brand-name">DA STRENGTH CLUB</span>
         </div>
@@ -1860,7 +1739,7 @@
           <h5>Contact</h5>
           <ul>
             <li>dastrengthclub@gmail.com</li>
-            <li><a href = "https://www.instagram.com/dastrengthclub/"target="_blank">@dastrengthclub</a></li>
+            <li><a href="https://www.instagram.com/dastrengthclub/" target="_blank">@dastrengthclub</a></li>
           </ul>
         </div>
       </div>
@@ -1891,21 +1770,48 @@
       document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 50);
     });
 
+    /* ─── HAMBURGER MENU ─────────────────────────────────────── */
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      hamburger.classList.toggle('active', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      // Prevent body scroll when menu is open
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    // Close mobile nav when a link is clicked
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
+        mobileNav.classList.remove('open');
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+    });
+
     /* ═══════════════════════════════════════════════════════════
-       ENQUIRY FORM — EMAILJS CONFIGURATION
-       Replace the 3 placeholder values below with your EmailJS IDs.
-       Everything else is already wired.
+       ENQUIRY FORM — EMAILJS
     ═══════════════════════════════════════════════════════════ */
     const EMAILJS_PUBLIC_KEY = "edgTVXRj83VtSzh15";
     const EMAILJS_SERVICE_ID = "service_aiqc61z";
     const EMAILJS_TEMPLATE_ID = "template_7sa6l88";
     const WHATSAPP_NUMBER = "916291655507";
 
-    emailjs.init({
-      publicKey: EMAILJS_PUBLIC_KEY,
-    });
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
 
-    /* ─── HELPERS ────────────────────────────────────────────── */
     function getFormData() {
       return {
         name: document.getElementById('f-name').value.trim(),
@@ -1941,11 +1847,9 @@
 
     function showSuccess() {
       document.getElementById('form-body').style.display = 'none';
-      const s = document.getElementById('form-success');
-      s.classList.add('active');
+      document.getElementById('form-success').classList.add('active');
     }
 
-    /* ─── EMAIL SUBMIT (EmailJS) ─────────────────────────────── */
     document.getElementById('btn-email-submit').addEventListener('click', async () => {
       const data = getFormData();
       if (!validateForm(data)) return;
@@ -1962,12 +1866,8 @@
           subject: data.interest || 'General Enquiry',
           interest: data.interest || 'Not specified',
           message: data.message || 'No message provided',
-          time: new Date().toLocaleString('en-IN', {
-            dateStyle: 'medium',
-            timeStyle: 'short'
-          })
+          time: new Date().toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' })
         });
-
         showSuccess();
         showToast('ENQUIRY SENT ✦', 'Email received! We will be in touch soon.');
       } catch (err) {
@@ -1978,7 +1878,6 @@
       }
     });
 
-    /* ─── WHATSAPP SUBMIT ────────────────────────────────────── */
     document.getElementById('btn-wa').addEventListener('click', () => {
       const data = getFormData();
       if (!validateForm(data)) return;
@@ -1991,16 +1890,16 @@
         `*Interest:* ${data.interest || 'General'}\n` +
         `*Message:* ${data.message || 'No message'}`;
 
-      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
-      window.open(url, '_blank', 'noopener');
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
       showSuccess();
       showToast('OPENING WHATSAPP ✦', 'Your enquiry is ready to send!');
     });
   </script>
+
+  <!-- ── CHATBOT ─────────────────────────────────────────────── -->
   <script>
     (function () {
       const KB = [
-
         {
           keys: ['membership plans', 'membership', 'plan', 'price', 'cost', 'fee', 'join', 'enroll', 'rate', 'charge'],
           reply: "Thank you for your interest! 🙏<br><br>We will <b>shortly send you our membership plans</b> on your email.<br><br>📧 <a href='mailto:dastrengthclub@gmail.com' style='color:#C9A84C'>dastrengthclub@gmail.com</a><br><br>💬 Or WhatsApp us for a quicker response!",
@@ -2041,10 +1940,9 @@
         return FALLBACK;
       }
 
-      /* ── STYLES ── */
       document.head.insertAdjacentHTML('beforeend', `<style>
     #dasc-bot-btn{
-      position:fixed;bottom:2rem;right:2rem;z-index:9000;
+      position:fixed;bottom:2rem;right:2rem;z-index:8500;
       width:58px;height:58px;border-radius:50%;
       background:#C9A84C;border:none;cursor:pointer;
       box-shadow:0 8px 28px rgba(201,168,76,0.5);
@@ -2061,7 +1959,7 @@
     }
     @keyframes blink{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}
     #dasc-bot-box{
-      position:fixed;bottom:5.5rem;right:2rem;z-index:9000;
+      position:fixed;bottom:5.5rem;right:2rem;z-index:8500;
       width:340px;max-height:500px;
       background:#113328;border:1px solid rgba(201,168,76,0.35);
       box-shadow:0 20px 60px rgba(0,0,0,0.6);
@@ -2111,13 +2009,18 @@
     #dasc-bot-input::placeholder{color:rgba(242,234,216,0.28);}
     #dasc-bot-send{background:#C9A84C;border:none;color:#0C2720;padding:0 1.1rem;font-size:1rem;cursor:pointer;}
     #dasc-bot-send:hover{background:#DFC07A;}
-    @media(max-width:420px){
-      #dasc-bot-box{width:calc(100vw - 2rem);right:1rem;}
-      #dasc-bot-btn{right:1rem;}
+    @media(max-width:480px){
+      #dasc-bot-box{
+        /* On mobile, open above button and stretch full width */
+        width:calc(100vw - 2rem);
+        right:1rem;
+        bottom:5rem;
+        max-height:60vh;
+      }
+      #dasc-bot-btn{right:1rem;bottom:1rem;}
     }
   </style>`);
 
-      /* ── HTML ── */
       document.body.insertAdjacentHTML('beforeend', `
     <button id="dasc-bot-btn" aria-label="Chat with us">
       💬<span id="dasc-bot-dot">1</span>
@@ -2137,7 +2040,6 @@
     </div>
   `);
 
-      /* ── LOGIC ── */
       const btn = document.getElementById('dasc-bot-btn');
       const box = document.getElementById('dasc-bot-box');
       const dot = document.getElementById('dasc-bot-dot');
