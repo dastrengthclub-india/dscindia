@@ -2222,7 +2222,6 @@
     const invoiceBuyerPhone = document.getElementById('invoice-buyer-phone');
     const invoiceBuyerAddress = document.getElementById('invoice-buyer-address');
     const invoiceBuyerNote = document.getElementById('invoice-buyer-note');
-    const invoiceNumber = document.getElementById('invoice-number');
     const invoiceSubtotal = document.getElementById('invoice-subtotal');
     const invoiceShipping = document.getElementById('invoice-shipping');
     const invoicePayment = document.getElementById('invoice-payment');
@@ -2459,7 +2458,6 @@
       cartTotal.textContent = formatAmount(total);
       cartStatus.textContent = totalItems ? `${totalItems} item${totalItems > 1 ? 's' : ''} ready · ${paymentMethod}` : 'Cart is empty';
       invoiceTotal.textContent = formatAmount(total);
-      invoiceNumber.textContent = generateInvoiceNumber();
       invoiceSubtotal.textContent = formatAmount(subtotal);
       invoiceShipping.textContent = getShippingLabel();
       invoicePayment.textContent = paymentMethod;
@@ -2601,8 +2599,6 @@
 
       const messageLines = [
         '*Da Strength Club Order*',
-        '',
-        `*Invoice No:* ${invoiceNumber.textContent}`,
         '',
         '*Buyer Details*',
         `Name: ${buyerNameInput.value.trim() || 'Not provided'}`,
