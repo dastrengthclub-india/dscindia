@@ -255,73 +255,63 @@
     .btn-submit:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(201,168,76,0.3); }
     .btn-whatsapp { padding: 1rem 1.4rem; background: transparent; border: 1px solid rgba(37,211,102,0.4); color: #25D366; font-size: 1.2rem; cursor: pointer; transition: background 0.3s, border-color 0.3s, transform 0.2s; display: flex; align-items: center; justify-content: center; text-decoration: none; flex-shrink: 0; }
     .btn-whatsapp:hover { background: rgba(37,211,102,0.1); border-color: #25D366; transform: translateY(-2px); }
-    .toast { position: fixed; bottom: 2.5rem; right: 2.5rem; background: var(--jade-light); border: 1px solid var(--gold-border); border-left: 3px solid var(--gold); padding: 1.2rem 1.8rem; z-index: 9000; min-width: 260px; max-width: calc(100vw - 5rem); transform: translateY(20px); opacity: 0; transition: all 0.5s var(--ease-out); pointer-events: none; }
-    .toast.show { transform: none; opacity: 1; pointer-events: auto; }
-    .toast .t-title { font-family: var(--ff-display); font-size: 1rem; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 0.3rem; }
-    .toast .t-msg { font-size: 0.78rem; color: var(--cream-muted); }
-    .form-success { display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 3rem; gap: 1rem; }
+    .form-success { display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; min-height: 380px; padding: 2rem 1rem; }
     .form-success.active { display: flex; }
-    .form-success .fs-icon { font-size: 3rem; }
-    .form-success h4 { font-family: var(--ff-display); font-size: 1.8rem; letter-spacing: 0.1em; color: var(--gold); }
-    .form-success p { font-size: 0.82rem; color: var(--cream-muted); max-width: 30ch; line-height: 1.6; }
+    .form-success .fs-icon { width: 72px; height: 72px; border-radius: 50%; border: 1px solid var(--gold-border); background: var(--gold-dim); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; color: var(--gold); margin-bottom: 1.4rem; }
+    .form-success h4 { font-family: var(--ff-display); font-size: 2rem; letter-spacing: 0.12em; color: var(--cream); margin-bottom: 0.5rem; }
+    .form-success p { font-size: 0.85rem; color: var(--cream-muted); max-width: 32ch; }
 
-    /* ═══════════════════════════════════════════════
-       RESPONSIVE BREAKPOINTS
-    ═══════════════════════════════════════════════ */
+    .toast { position: fixed; right: 2rem; bottom: 2rem; z-index: 1200; min-width: 280px; max-width: 360px; background: rgba(12,39,32,0.96); border: 1px solid var(--gold-border); box-shadow: 0 18px 48px rgba(0,0,0,0.45); padding: 1rem 1.2rem; opacity: 0; pointer-events: none; transform: translateY(18px); transition: opacity 0.35s, transform 0.35s; }
+    .toast.show { opacity: 1; transform: none; }
+    .toast .t-title { font-family: var(--ff-display); font-size: 1rem; letter-spacing: 0.14em; color: var(--gold); margin-bottom: 0.3rem; }
+    .toast .t-msg { font-size: 0.78rem; color: var(--cream-muted); line-height: 1.55; }
+
+    /* ─── RESPONSIVE ── */
     @media (max-width: 1100px) {
       #infrastructure { grid-template-columns: 1fr; }
       .infra-images { height: 420px; grid-template-rows: 1fr 1fr; }
       .training-cards { grid-template-columns: 1fr 1fr; }
       .hero { grid-template-columns: 1fr; }
-      .hero-image { display: none; }
-      .hero-text { padding: 5rem 6vw; min-height: 100svh; }
+      .hero-image { min-height: 500px; order: -1; }
+      .hero-text { padding-top: 4rem; }
       .unique-grid { grid-template-columns: 1fr; gap: 4rem; }
-      .unique-visual { position: static; }
+      .unique-visual { position: relative; top: 0; }
       .stats-bar { grid-template-columns: repeat(2,1fr); }
+      .stat-item+.stat-item { border-left: none; padding-left: 0; }
     }
 
-    /* 768px — hamburger appears, desktop nav hides */
     @media (max-width: 768px) {
-      .hamburger { display: flex; }
       nav { display: none; }
-      .hero-text { padding: 5rem 5vw 4rem; }
-      .hero-cta { flex-direction: column; align-items: flex-start; }
-      .btn-gold, .btn-outline { width: 100%; text-align: center; }
-      .unique-grid { gap: 3rem; }
-      .u-main-img { height: 320px; }
-      .footer-top { gap: 2rem; }
-    }
-
-    @media (max-width: 640px) {
-      section { padding: 5rem 5vw; }
-
-      /* FIX: stats border only on right-column items in 2-col layout */
+      .hamburger { display: flex; }
+      .logo-slot img { height: 64px; }
+      .brand-name { font-size: 1.5rem; }
+      .hero-text { padding: 4rem 5vw 5rem; }
+      .hero-image { min-height: 420px; }
+      .floating-badge { right: 1rem; bottom: 1.5rem; padding: 1.2rem 1.4rem; }
+      section, footer { padding: 5rem 5vw; }
       .stats-bar { grid-template-columns: 1fr 1fr; padding: 3rem 5vw; }
-      .stat-item + .stat-item { border-left: none; padding-left: 0; }
-      .stat-item:nth-child(2), .stat-item:nth-child(4) { border-left: 1px solid rgba(12,39,32,0.2); padding-left: 1.5rem; }
-      /* FIX: hide watermark — bleeds on small screens */
-      .stats-bar::before { display: none; }
-
+      .training-header { margin-bottom: 3rem; }
+      .footer-top { flex-direction: column; }
+      .footer-links { gap: 2.5rem; }
       .training-cards { grid-template-columns: 1fr; }
       .infra-grid { grid-template-columns: 1fr; }
-      .footer-links { gap: 2rem; flex-direction: column; }
+      .u-main-img { height: 360px; }
       .form-row { grid-template-columns: 1fr; }
       #enquiry { grid-template-columns: 1fr; gap: 3rem; }
-      .form-card { padding: 2rem 1.5rem; }
-      .toast { left: 1rem; right: 1rem; min-width: unset; max-width: unset; bottom: 1.5rem; }
-      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+      .form-card { padding: 2.2rem 1.6rem; }
+      .toast { left: 1rem; right: 1rem; bottom: 1rem; max-width: none; min-width: 0; }
     }
 
-    @media (max-width: 420px) {
-      section { padding: 4rem 4vw; }
-      .contact-card { padding: 1.2rem 1rem; gap: 1rem; }
-      .infra-card { padding: 1.5rem 1.2rem; }
+    @media (max-width: 520px) {
+      .hero-image { min-height: 360px; }
+      .floating-badge .f-num { font-size: 2.5rem; }
+      .contact-card { padding: 1.2rem 1.1rem; gap: 1rem; }
+      .contact-card .cc-value { font-size: 0.8rem; }
       .form-submit-row { flex-direction: column; }
-      .btn-submit { width: 100%; }
+      .btn-submit,
       .btn-whatsapp { width: 100%; padding: 1rem; }
     }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -340,14 +330,12 @@ src="https://www.facebook.com/tr?id=835173008916007&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 </head>
-
 <body>
-
   <!-- LOADER -->
   <div id="loader">
-    <span class="loader-wordmark">DA <span>STRENGTH</span> CLUB</span>
+    <div class="loader-wordmark"><span>DA</span> STRENGTH CLUB</div>
     <div class="loader-bar-track"><div class="loader-bar-fill"></div></div>
-    <p class="loader-sub">Strength &amp; Conditioning</p>
+    <div class="loader-sub">Strength • Conditioning • Discipline</div>
   </div>
 
   <!-- ── MOBILE NAV DRAWER ── -->
@@ -358,6 +346,8 @@ src="https://www.facebook.com/tr?id=835173008916007&ev=PageView&noscript=1"
     <div class="mobile-nav-divider"></div>
     <a href="#uniqueness" class="mobile-nav-link">Uniqueness</a>
     <div class="mobile-nav-divider"></div>
+    <a href="product.html" class="mobile-nav-link">Products</a>
+    <div class="mobile-nav-divider"></div>
     <a href="#enquiry" class="mobile-nav-link">Enquire</a>
     <p class="mobile-nav-sub">Da Strength Club · Kolkata</p>
   </nav>
@@ -366,14 +356,15 @@ src="https://www.facebook.com/tr?id=835173008916007&ev=PageView&noscript=1"
   <header id="site-header">
     <div class="brand">
       <div class="logo-slot">
-        <img src="favicon.png" alt="DA Strength Club" />
-      </div>
-      <span class="brand-name">DA STRENGTH CLUB</span>
+  <img src="favicon.png" alt="DA Strength Club Logo">
+</div>
+      <span class="brand-name">DA Strength Club</span>
     </div>
-    <nav id="desktop-nav">
+    <nav>
       <a href="#infrastructure">Infrastructure</a>
       <a href="#training">Training</a>
       <a href="#uniqueness">Uniqueness</a>
+      <a href="product.html">Products</a>
       <a href="#enquiry">Enquire</a>
     </nav>
     <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-nav">
@@ -382,16 +373,11 @@ src="https://www.facebook.com/tr?id=835173008916007&ev=PageView&noscript=1"
   </header>
 
   <!-- ── HERO ── -->
-  <div class="hero" id="home">
+  <div class="hero">
     <div class="hero-text">
-      <p class="hero-eyebrow">Strength &amp; Conditioning</p>
-      <h1 class="hero-title">
-        BUILD<br>
-        <span class="gold-line">STRONGER</span>
-        <span class="outlined">EVERY</span>
-        DAY
-      </h1>
-      <p class="hero-sub">Where discipline meets design. A space engineered for those who take strength seriously — and refuse to settle.</p>
+      <div class="hero-eyebrow">Kolkata’s Premium Strength &amp; Conditioning Facility</div>
+      <h1 class="hero-title">BUILD<br><span class="gold-line">REAL</span><span class="outlined">STRENGTH</span></h1>
+      <p class="hero-sub">Not just a gym — a high-performance training environment engineered for serious athletes, ambitious beginners, and everyone ready to outgrow average.</p>
       <div class="hero-cta">
         <a href="#training" class="btn-gold">Explore Training</a>
         <a href="#uniqueness" class="btn-outline">Our Difference</a>
@@ -487,9 +473,8 @@ src="https://www.facebook.com/tr?id=835173008916007&ev=PageView&noscript=1"
     <div class="enquiry-info">
       <p class="section-tag reveal">Get In Touch</p>
       <h2 class="section-title reveal reveal-d1">START YOUR<br><span class="outlined-t">JOURNEY</span></h2>
-      <p class="section-intro reveal reveal-d2">Ready to train with purpose? Drop us an enquiry and our team will reach out within 24 hours.</p>
+      <p class="section-intro reveal reveal-d2">Ready to train with purpose? Send your enquiry on WhatsApp and our team will connect with you soon.</p>
       <div class="enquiry-contact-cards reveal reveal-d3">
-        <a class="contact-card" href="mailto:dastrengthclub@gmail.com"><div class="cc-icon">✉️</div><div class="cc-text"><div class="cc-label">Email Us</div><div class="cc-value">dastrengthclub@gmail.com</div></div></a>
         <a class="contact-card" href="https://wa.me/916291655507" target="_blank" rel="noopener"><div class="cc-icon">💬</div><div class="cc-text"><div class="cc-label">WhatsApp</div><div class="cc-value">+91 6291655507</div></div></a>
         <div class="contact-card" onclick="window.open('https://maps.app.goo.gl/Z9QD5MHbkbqB3L8A9','_blank')" style="cursor:pointer;"><div class="cc-icon">📍</div><div class="cc-text"><div class="cc-label">Find Us</div><div class="cc-value">DA Strength Club, Baguiati, Kolkata</div></div></div>
       </div>
@@ -500,18 +485,16 @@ src="https://www.facebook.com/tr?id=835173008916007&ev=PageView&noscript=1"
         <div id="form-body">
           <div class="form-row">
             <div class="form-group"><label for="f-name">Full Name</label><input id="f-name" name="name" type="text" placeholder="John Doe" required /></div>
-            <div class="form-group"><label for="f-email">Email Address</label><input id="f-email" name="email" type="email" placeholder="john@example.com" required /></div>
+            <div class="form-group"><label for="f-phone">Phone / WhatsApp Number</label><input id="f-phone" name="phone" type="tel" placeholder="+91 XXXXX XXXXX" required /></div>
           </div>
-          <div class="form-group"><label for="f-phone">Phone / WhatsApp Number</label><input id="f-phone" name="phone" type="tel" placeholder="+91 XXXXX XXXXX" required /></div>
           <div class="form-group"><label for="f-interest">I'm Interested In</label><select id="f-interest" name="interest"><option value="" disabled selected>Select a programme…</option><option>Strength Training</option><option>Conditioning</option><option>Personal Coaching</option><option>General Membership</option><option>Other</option></select></div>
           <div class="form-group"><label for="f-msg">Message</label><textarea id="f-msg" name="message" placeholder="Tell us about your goals, current fitness level, or anything you'd like us to know…"></textarea></div>
           <div class="form-submit-row">
-            <button class="btn-submit" id="btn-email-submit" type="button"><span>✉</span> Send Enquiry</button>
             <button class="btn-whatsapp" id="btn-wa" type="button" title="Send via WhatsApp">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             </button>
           </div>
-          <p style="font-size:0.65rem;color:var(--cream-muted);opacity:0.5;margin-top:1.2rem;line-height:1.5;">By submitting, you agree to be contacted by DA Strength Club. We respect your privacy.</p>
+          <p style="font-size:0.65rem;color:var(--cream-muted);opacity:0.5;margin-top:1.2rem;line-height:1.5;">By sending this form, you agree to be contacted by Da Strength Club on WhatsApp. We respect your privacy.</p>
         </div>
       </div>
     </div>
@@ -531,7 +514,7 @@ src="https://www.facebook.com/tr?id=835173008916007&ev=PageView&noscript=1"
         <p class="footer-tagline">Strength &amp; Conditioning — Built Different.</p>
       </div>
       <div class="footer-links">
-        <div class="footer-col"><h5>Navigate</h5><ul><li><a href="#infrastructure">Infrastructure</a></li><li><a href="#training">Training</a></li><li><a href="#uniqueness">Uniqueness</a></li><li><a href="#enquiry">Enquire</a></li></ul></div>
+        <div class="footer-col"><h5>Navigate</h5><ul><li><a href="#infrastructure">Infrastructure</a></li><li><a href="#training">Training</a></li><li><a href="#uniqueness">Uniqueness</a></li><li><a href="product.html">Products</a></li><li><a href="#enquiry">Enquire</a></li></ul></div>
         <div class="footer-col"><h5>Training</h5><ul><li>Strength Training</li><li>Conditioning</li><li>Personal Coaching</li></ul></div>
         <div class="footer-col"><h5>Contact</h5><ul><li>dastrengthclub@gmail.com</li><li><a href="https://www.instagram.com/dastrengthclub/" target="_blank">@dastrengthclub</a></li></ul></div>
       </div>
@@ -567,31 +550,17 @@ src="https://www.facebook.com/tr?id=835173008916007&ev=PageView&noscript=1"
     });
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && mobileNav.classList.contains('open')) { mobileNav.classList.remove('open'); hamburger.classList.remove('active'); hamburger.setAttribute('aria-expanded','false'); document.body.style.overflow = ''; } });
 
-    /* ─── EMAILJS ── */
-    const EMAILJS_PUBLIC_KEY = "edgTVXRj83VtSzh15";
-    const EMAILJS_SERVICE_ID = "service_aiqc61z";
-    const EMAILJS_TEMPLATE_ID = "template_7sa6l88";
     const WHATSAPP_NUMBER = "916291655507";
-    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
 
-    function getFormData() { return { name: document.getElementById('f-name').value.trim(), email: document.getElementById('f-email').value.trim(), phone: document.getElementById('f-phone').value.trim(), interest: document.getElementById('f-interest').value, message: document.getElementById('f-msg').value.trim() }; }
-    function validateForm(data) { if (!data.name) { flashInput('f-name','Please enter your name'); return false; } if (!data.email || !data.email.includes('@')) { flashInput('f-email','Please enter a valid email'); return false; } if (!data.phone) { flashInput('f-phone','Please enter your phone number'); return false; } return true; }
+    function getFormData() { return { name: document.getElementById('f-name').value.trim(), phone: document.getElementById('f-phone').value.trim(), interest: document.getElementById('f-interest').value, message: document.getElementById('f-msg').value.trim() }; }
+    function validateForm(data) { if (!data.name) { flashInput('f-name','Please enter your name'); return false; } if (!data.phone) { flashInput('f-phone','Please enter your phone number'); return false; } return true; }
     function flashInput(id, msg) { const el = document.getElementById(id); el.style.borderColor = '#e05555'; el.focus(); showToast('HOLD ON ✦', msg); setTimeout(() => el.style.borderColor = '', 2000); }
     function showToast(title, msg) { const toast = document.getElementById('toast'); document.querySelector('.t-title').textContent = title; document.getElementById('toast-msg').textContent = msg; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 4000); }
     function showSuccess() { document.getElementById('form-body').style.display = 'none'; document.getElementById('form-success').classList.add('active'); }
 
-    document.getElementById('btn-email-submit').addEventListener('click', async () => {
-      const data = getFormData(); if (!validateForm(data)) return;
-      const btn = document.getElementById('btn-email-submit'); btn.innerHTML = '<span>✉</span> Sending…'; btn.disabled = true;
-      try {
-        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, { name: data.name, email: data.email, phone: data.phone, subject: data.interest || 'General Enquiry', interest: data.interest || 'Not specified', message: data.message || 'No message provided', time: new Date().toLocaleString('en-IN',{dateStyle:'medium',timeStyle:'short'}) });
-        showSuccess(); showToast('ENQUIRY SENT ✦','Email received! We will be in touch soon.');
-      } catch (err) { btn.innerHTML = '<span>✉</span> Send Enquiry'; btn.disabled = false; showToast('TRY AGAIN','Email failed. Please try WhatsApp instead.'); console.error('EmailJS error:',err); }
-    });
-
     document.getElementById('btn-wa').addEventListener('click', () => {
       const data = getFormData(); if (!validateForm(data)) return;
-      const msg = `*DA Strength Club Enquiry*\n\n*Name:* ${data.name}\n*Email:* ${data.email}\n*Phone:* ${data.phone}\n*Interest:* ${data.interest||'General'}\n*Message:* ${data.message||'No message'}`;
+      const msg = `*Da Strength Club Enquiry*\n\n*Name:* ${data.name}\n*Phone:* ${data.phone}\n*Interest:* ${data.interest||'General'}\n*Message:* ${data.message||'No message'}`;
       window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
       showSuccess(); showToast('OPENING WHATSAPP ✦','Your enquiry is ready to send!');
     });
