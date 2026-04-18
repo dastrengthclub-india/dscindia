@@ -219,7 +219,6 @@
     footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg,transparent,var(--gold),transparent); opacity: 0.6; }
     .footer-top { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 3.5rem; border-bottom: 1px solid var(--rule); flex-wrap: wrap; gap: 3rem; }
     .footer-brand .brand-name { font-size: 1.8rem; color: var(--cream); }
-    /* FIX: was font-size: xx-large */
     .footer-tagline { font-family: var(--ff-serif); font-style: italic; font-size: clamp(1rem,2.5vw,1.5rem); color: var(--cream-muted); margin-top: 0.6rem; }
     .footer-links { display: flex; gap: 5rem; flex-wrap: wrap; }
     .footer-col h5 { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
@@ -253,63 +252,64 @@
     .form-submit-row { display: flex; gap: 1rem; align-items: center; margin-top: 0.5rem; flex-wrap: wrap; }
     .btn-submit { flex: 1; min-width: 140px; padding: 1rem 2rem; background: var(--gold); color: var(--jade); font-family: var(--ff-body); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; border: none; cursor: pointer; transition: background 0.3s, transform 0.2s, box-shadow 0.3s; clip-path: polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px)); display: flex; align-items: center; justify-content: center; gap: 0.6rem; }
     .btn-submit:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(201,168,76,0.3); }
-    .btn-whatsapp { padding: 1rem 1.4rem; background: transparent; border: 1px solid rgba(37,211,102,0.4); color: #25D366; font-size: 1.2rem; cursor: pointer; transition: background 0.3s, border-color 0.3s, transform 0.2s; display: flex; align-items: center; justify-content: center; text-decoration: none; flex-shrink: 0; }
-    .btn-whatsapp:hover { background: rgba(37,211,102,0.1); border-color: #25D366; transform: translateY(-2px); }
-    .form-success { display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; min-height: 380px; padding: 2rem 1rem; }
+    .btn-whatsapp { min-width: 280px; padding: 1.15rem 2.8rem; background: var(--gold); border: 1px solid rgba(12,39,32,0.35); color: var(--jade-deep); font-family: var(--ff-body); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.38em; text-transform: uppercase; cursor: pointer; transition: background 0.3s, transform 0.2s, box-shadow 0.3s; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; flex-shrink: 0; clip-path: polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px)); box-shadow: 0 14px 30px rgba(12,39,32,0.22); }
+    .btn-whatsapp:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 18px 36px rgba(12,39,32,0.28); }
+    .toast { position: fixed; bottom: 2.5rem; right: 2.5rem; background: var(--jade-light); border: 1px solid var(--gold-border); border-left: 3px solid var(--gold); padding: 1.2rem 1.8rem; z-index: 9000; min-width: 260px; max-width: calc(100vw - 5rem); transform: translateY(20px); opacity: 0; transition: all 0.5s var(--ease-out); pointer-events: none; }
+    .toast.show { transform: none; opacity: 1; pointer-events: auto; }
+    .toast .t-title { font-family: var(--ff-display); font-size: 1rem; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 0.3rem; }
+    .toast .t-msg { font-size: 0.78rem; color: var(--cream-muted); }
+    .form-success { display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 3rem; gap: 1rem; }
     .form-success.active { display: flex; }
-    .form-success .fs-icon { width: 72px; height: 72px; border-radius: 50%; border: 1px solid var(--gold-border); background: var(--gold-dim); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; color: var(--gold); margin-bottom: 1.4rem; }
-    .form-success h4 { font-family: var(--ff-display); font-size: 2rem; letter-spacing: 0.12em; color: var(--cream); margin-bottom: 0.5rem; }
-    .form-success p { font-size: 0.85rem; color: var(--cream-muted); max-width: 32ch; }
+    .form-success .fs-icon { font-size: 3rem; }
+    .form-success h4 { font-family: var(--ff-display); font-size: 1.8rem; letter-spacing: 0.1em; color: var(--gold); }
+    .form-success p { font-size: 0.82rem; color: var(--cream-muted); max-width: 30ch; line-height: 1.6; }
 
-    .toast { position: fixed; right: 2rem; bottom: 2rem; z-index: 1200; min-width: 280px; max-width: 360px; background: rgba(12,39,32,0.96); border: 1px solid var(--gold-border); box-shadow: 0 18px 48px rgba(0,0,0,0.45); padding: 1rem 1.2rem; opacity: 0; pointer-events: none; transform: translateY(18px); transition: opacity 0.35s, transform 0.35s; }
-    .toast.show { opacity: 1; transform: none; }
-    .toast .t-title { font-family: var(--ff-display); font-size: 1rem; letter-spacing: 0.14em; color: var(--gold); margin-bottom: 0.3rem; }
-    .toast .t-msg { font-size: 0.78rem; color: var(--cream-muted); line-height: 1.55; }
-
-    /* ─── RESPONSIVE ── */
     @media (max-width: 1100px) {
       #infrastructure { grid-template-columns: 1fr; }
       .infra-images { height: 420px; grid-template-rows: 1fr 1fr; }
       .training-cards { grid-template-columns: 1fr 1fr; }
       .hero { grid-template-columns: 1fr; }
-      .hero-image { min-height: 500px; order: -1; }
-      .hero-text { padding-top: 4rem; }
+      .hero-image { display: none; }
+      .hero-text { padding: 5rem 6vw; min-height: 100svh; }
       .unique-grid { grid-template-columns: 1fr; gap: 4rem; }
-      .unique-visual { position: relative; top: 0; }
+      .unique-visual { position: static; }
       .stats-bar { grid-template-columns: repeat(2,1fr); }
-      .stat-item+.stat-item { border-left: none; padding-left: 0; }
     }
 
     @media (max-width: 768px) {
-      nav { display: none; }
       .hamburger { display: flex; }
-      .logo-slot img { height: 64px; }
-      .brand-name { font-size: 1.5rem; }
-      .hero-text { padding: 4rem 5vw 5rem; }
-      .hero-image { min-height: 420px; }
-      .floating-badge { right: 1rem; bottom: 1.5rem; padding: 1.2rem 1.4rem; }
-      section, footer { padding: 5rem 5vw; }
-      .stats-bar { grid-template-columns: 1fr 1fr; padding: 3rem 5vw; }
-      .training-header { margin-bottom: 3rem; }
-      .footer-top { flex-direction: column; }
-      .footer-links { gap: 2.5rem; }
-      .training-cards { grid-template-columns: 1fr; }
-      .infra-grid { grid-template-columns: 1fr; }
-      .u-main-img { height: 360px; }
-      .form-row { grid-template-columns: 1fr; }
-      #enquiry { grid-template-columns: 1fr; gap: 3rem; }
-      .form-card { padding: 2.2rem 1.6rem; }
-      .toast { left: 1rem; right: 1rem; bottom: 1rem; max-width: none; min-width: 0; }
+      nav { display: none; }
+      .hero-text { padding: 5rem 5vw 4rem; }
+      .hero-cta { flex-direction: column; align-items: flex-start; }
+      .btn-gold, .btn-outline { width: 100%; text-align: center; }
+      .unique-grid { gap: 3rem; }
+      .u-main-img { height: 320px; }
+      .footer-top { gap: 2rem; }
     }
 
-    @media (max-width: 520px) {
-      .hero-image { min-height: 360px; }
-      .floating-badge .f-num { font-size: 2.5rem; }
-      .contact-card { padding: 1.2rem 1.1rem; gap: 1rem; }
-      .contact-card .cc-value { font-size: 0.8rem; }
+    @media (max-width: 640px) {
+      section { padding: 5rem 5vw; }
+      .stats-bar { grid-template-columns: 1fr 1fr; padding: 3rem 5vw; }
+      .stat-item + .stat-item { border-left: none; padding-left: 0; }
+      .stat-item:nth-child(2), .stat-item:nth-child(4) { border-left: 1px solid rgba(12,39,32,0.2); padding-left: 1.5rem; }
+      .stats-bar::before { display: none; }
+      .training-cards { grid-template-columns: 1fr; }
+      .infra-grid { grid-template-columns: 1fr; }
+      .footer-links { gap: 2rem; flex-direction: column; }
+      .form-row { grid-template-columns: 1fr; }
+      #enquiry { grid-template-columns: 1fr; gap: 3rem; }
+      .form-card { padding: 2rem 1.5rem; }
+      .toast { left: 1rem; right: 1rem; min-width: unset; max-width: unset; bottom: 1.5rem; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+    }
+
+    @media (max-width: 420px) {
+      section { padding: 4rem 4vw; }
+      .contact-card { padding: 1.2rem 1rem; gap: 1rem; }
+      .infra-card { padding: 1.5rem 1.2rem; }
       .form-submit-row { flex-direction: column; }
-      .btn-submit,
-      .btn-whatsapp { width: 100%; padding: 1rem; }
+      .btn-submit { width: 100%; }
+      .btn-whatsapp { width: 100%; min-width: 0; padding: 1rem 1.4rem; }
     }
   </style>
 <!-- Meta Pixel Code -->
@@ -331,36 +331,26 @@ src="https://www.facebook.com/tr?id=835173008916007&ev=PageView&noscript=1"
 <!-- End Meta Pixel Code -->
 </head>
 <body>
-  <!-- LOADER -->
-  <div id="loader">
-    <div class="loader-wordmark"><span>DA</span> STRENGTH CLUB</div>
-    <div class="loader-bar-track"><div class="loader-bar-fill"></div></div>
-    <div class="loader-sub">Strength • Conditioning • Discipline</div>
+  <div id="loader"><div class="loader-wordmark">DA <span>STRENGTH</span> CLUB</div><div class="loader-bar-track"><div class="loader-bar-fill"></div></div><div class="loader-sub">Strength • Conditioning • Culture</div></div>
+
+  <div class="mobile-nav" id="mobile-nav">
+    <a class="mobile-nav-link" href="#infrastructure">Infrastructure</a>
+    <a class="mobile-nav-link" href="#training">Training</a>
+    <a class="mobile-nav-link" href="#uniqueness">Uniqueness</a>
+    <a class="mobile-nav-link" href="product.html">Products</a>
+    <a class="mobile-nav-link" href="#enquiry">Enquire</a>
+    <div class="mobile-nav-divider"></div>
+    <p class="mobile-nav-sub">Da Strength Club • Kolkata</p>
   </div>
 
-  <!-- ── MOBILE NAV DRAWER ── -->
-  <nav class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Main navigation">
-    <a href="#infrastructure" class="mobile-nav-link">Infrastructure</a>
-    <div class="mobile-nav-divider"></div>
-    <a href="#training" class="mobile-nav-link">Training</a>
-    <div class="mobile-nav-divider"></div>
-    <a href="#uniqueness" class="mobile-nav-link">Uniqueness</a>
-    <div class="mobile-nav-divider"></div>
-    <a href="product.html" class="mobile-nav-link">Products</a>
-    <div class="mobile-nav-divider"></div>
-    <a href="#enquiry" class="mobile-nav-link">Enquire</a>
-    <p class="mobile-nav-sub">Da Strength Club · Kolkata</p>
-  </nav>
-
-  <!-- ── HEADER ── -->
   <header id="site-header">
     <div class="brand">
       <div class="logo-slot">
-  <img src="favicon.png" alt="DA Strength Club Logo">
-</div>
-      <span class="brand-name">DA Strength Club</span>
+        <img src="favicon.png" alt="DA Strength Club" />
+      </div>
+      <span class="brand-name">DA STRENGTH CLUB</span>
     </div>
-    <nav>
+    <nav id="desktop-nav">
       <a href="#infrastructure">Infrastructure</a>
       <a href="#training">Training</a>
       <a href="#uniqueness">Uniqueness</a>
@@ -372,12 +362,16 @@ src="https://www.facebook.com/tr?id=835173008916007&ev=PageView&noscript=1"
     </button>
   </header>
 
-  <!-- ── HERO ── -->
-  <div class="hero">
+  <div class="hero" id="home">
     <div class="hero-text">
-      <div class="hero-eyebrow">Kolkata’s Premium Strength &amp; Conditioning Facility</div>
-      <h1 class="hero-title">BUILD<br><span class="gold-line">REAL</span><span class="outlined">STRENGTH</span></h1>
-      <p class="hero-sub">Not just a gym — a high-performance training environment engineered for serious athletes, ambitious beginners, and everyone ready to outgrow average.</p>
+      <p class="hero-eyebrow">Strength &amp; Conditioning</p>
+      <h1 class="hero-title">
+        BUILD<br>
+        <span class="gold-line">STRONGER</span>
+        <span class="outlined">EVERY</span>
+        DAY
+      </h1>
+      <p class="hero-sub">Where discipline meets design. A space engineered for those who take strength seriously — and refuse to settle.</p>
       <div class="hero-cta">
         <a href="#training" class="btn-gold">Explore Training</a>
         <a href="#uniqueness" class="btn-outline">Our Difference</a>
@@ -392,7 +386,6 @@ src="https://www.facebook.com/tr?id=835173008916007&ev=PageView&noscript=1"
     </div>
   </div>
 
-  <!-- ── INFRASTRUCTURE ── -->
   <section id="infrastructure">
     <div>
       <p class="section-tag reveal">Our Space</p>
@@ -416,7 +409,6 @@ src="https://www.facebook.com/tr?id=835173008916007&ev=PageView&noscript=1"
     </div>
   </section>
 
-  <!-- ── STATS BAR ── -->
   <div class="stats-bar">
     <div class="stat-item reveal"><div class="s-num">500<sup>+</sup></div><div class="s-label">Members Trained</div></div>
     <div class="stat-item reveal reveal-d1"><div class="s-num">2.2K</div><div class="s-label">Sq. Ft. Facility</div></div>
@@ -424,7 +416,6 @@ src="https://www.facebook.com/tr?id=835173008916007&ev=PageView&noscript=1"
     <div class="stat-item reveal reveal-d3"><div class="s-num">5★</div><div class="s-label">Member Rating</div></div>
   </div>
 
-  <!-- ── TRAINING ── -->
   <section id="training">
     <div class="training-header">
       <div>
@@ -440,14 +431,12 @@ src="https://www.facebook.com/tr?id=835173008916007&ev=PageView&noscript=1"
     </div>
   </section>
 
-  <!-- MARQUEE -->
   <div class="marquee-wrap">
     <div class="marquee-track">
       <span class="marquee-item">STRENGTH</span><span class="marquee-item g">✦</span><span class="marquee-item">CONDITIONING</span><span class="marquee-item g">✦</span><span class="marquee-item">DISCIPLINE</span><span class="marquee-item g">✦</span><span class="marquee-item">DA STRENGTH CLUB</span><span class="marquee-item g">✦</span><span class="marquee-item">PROGRESS</span><span class="marquee-item g">✦</span><span class="marquee-item">COMMUNITY</span><span class="marquee-item g">✦</span><span class="marquee-item">STRENGTH</span><span class="marquee-item g">✦</span><span class="marquee-item">CONDITIONING</span><span class="marquee-item g">✦</span><span class="marquee-item">DISCIPLINE</span><span class="marquee-item g">✦</span><span class="marquee-item">DA STRENGTH CLUB</span><span class="marquee-item g">✦</span><span class="marquee-item">PROGRESS</span><span class="marquee-item g">✦</span><span class="marquee-item">COMMUNITY</span><span class="marquee-item g">✦</span>
     </div>
   </div>
 
-  <!-- ── UNIQUENESS ── -->
   <section id="uniqueness">
     <p class="section-tag reveal">What Sets Us Apart</p>
     <h2 class="section-title reveal reveal-d1">THE DA<br><span class="outlined-t">DIFFERENCE</span></h2>
@@ -468,7 +457,6 @@ src="https://www.facebook.com/tr?id=835173008916007&ev=PageView&noscript=1"
 
   <div class="gold-divider"></div>
 
-  <!-- ── ENQUIRY ── -->
   <section id="enquiry">
     <div class="enquiry-info">
       <p class="section-tag reveal">Get In Touch</p>
@@ -490,9 +478,7 @@ src="https://www.facebook.com/tr?id=835173008916007&ev=PageView&noscript=1"
           <div class="form-group"><label for="f-interest">I'm Interested In</label><select id="f-interest" name="interest"><option value="" disabled selected>Select a programme…</option><option>Strength Training</option><option>Conditioning</option><option>Personal Coaching</option><option>General Membership</option><option>Other</option></select></div>
           <div class="form-group"><label for="f-msg">Message</label><textarea id="f-msg" name="message" placeholder="Tell us about your goals, current fitness level, or anything you'd like us to know…"></textarea></div>
           <div class="form-submit-row">
-            <button class="btn-whatsapp" id="btn-wa" type="button" title="Send via WhatsApp">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            </button>
+            <button class="btn-whatsapp" id="btn-wa" type="button" title="Send via WhatsApp">Send To WhatsApp</button>
           </div>
           <p style="font-size:0.65rem;color:var(--cream-muted);opacity:0.5;margin-top:1.2rem;line-height:1.5;">By sending this form, you agree to be contacted by Da Strength Club on WhatsApp. We respect your privacy.</p>
         </div>
@@ -536,7 +522,6 @@ src="https://www.facebook.com/tr?id=835173008916007&ev=PageView&noscript=1"
 
     window.addEventListener('scroll', () => { document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 50); });
 
-    /* ─── HAMBURGER ── */
     const hamburger = document.getElementById('hamburger');
     const mobileNav = document.getElementById('mobile-nav');
     hamburger.addEventListener('click', () => {
@@ -564,78 +549,6 @@ src="https://www.facebook.com/tr?id=835173008916007&ev=PageView&noscript=1"
       window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
       showSuccess(); showToast('OPENING WHATSAPP ✦','Your enquiry is ready to send!');
     });
-  </script>
-
-  <script>
-    (function(){
-      const KB=[
-        {keys:['membership plans','membership','plan','price','cost','fee','join','enroll','rate','charge'],reply:"Thank you for your interest! 🙏<br><br>WhatsApp Us for Membership related queries!",chips:['Gym Timings','Our Location','Contact Us']},
-        {keys:['gym timings','timings','timing','time','hour','open','close','when'],reply:"🕕 <b>Mon – Sat:</b> 6:00 AM – 10:00 PM<br>🕖 <b>Sunday:</b> Closed",chips:['Membership Plans','Our Location','Contact Us']},
-        {keys:['our location','location','address','where','find','map','place'],reply:"📍 <b>DA Strength Club</b><br>Da Strength Club, DD-69, Narayantola East, Ashwini Nagar, Baguiati, Kolkata, West Bengal 700159<br><br>💬 WhatsApp us for exact directions!",chips:['Membership Plans','Gym Timings','Contact Us']},
-        {keys:['contact us','contact','phone','whatsapp','email','reach','call'],reply:"📧 <a href='mailto:dastrengthclub@gmail.com' style='color:#C9A84C'>dastrengthclub@gmail.com</a><br><br>💬 <a href='https://wa.me/916291655507' target='_blank' style='color:#C9A84C'>+91 62916 55507</a>",chips:['Membership Plans','Gym Timings','Our Location']},
-        {keys:['hi','hello','hey','hiya','greet','start','help'],reply:"Hey! 💪 Welcome to <strong>DA Strength Club</strong>. How can I help you?",chips:['Membership Plans','Gym Timings','Our Location','Contact Us']}
-      ];
-      const FALLBACK={reply:"I can help with Membership Plans, Timings, Location and Contact details!",chips:['Membership Plans','Gym Timings','Our Location','Contact Us']};
-      function getResponse(text){const t=text.toLowerCase().trim();for(const e of KB){if(e.keys.some(k=>t===k||t.includes(k)))return e;}return FALLBACK;}
-
-      document.head.insertAdjacentHTML('beforeend',`<style>
-    #dasc-bot-btn{position:fixed;bottom:2rem;right:2rem;z-index:8500;width:58px;height:58px;border-radius:50%;background:#C9A84C;border:none;cursor:pointer;box-shadow:0 8px 28px rgba(201,168,76,0.5);font-size:1.5rem;transition:transform 0.3s,box-shadow 0.3s;display:flex;align-items:center;justify-content:center;}
-    #dasc-bot-btn:hover{transform:scale(1.12);box-shadow:0 12px 36px rgba(201,168,76,0.65);}
-    #dasc-bot-dot{position:absolute;top:-3px;right:-3px;width:16px;height:16px;border-radius:50%;background:#e74c3c;font-size:0.5rem;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;animation:blink 2s infinite;}
-    @keyframes blink{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}
-    #dasc-bot-box{position:fixed;bottom:5.5rem;right:2rem;z-index:8500;width:340px;max-height:500px;background:#113328;border:1px solid rgba(201,168,76,0.35);box-shadow:0 20px 60px rgba(0,0,0,0.6);display:flex;flex-direction:column;opacity:0;transform:translateY(16px) scale(0.95);pointer-events:none;transition:all 0.3s cubic-bezier(0.22,1,0.36,1);}
-    #dasc-bot-box.open{opacity:1;transform:none;pointer-events:auto;}
-    #dasc-bot-head{background:#0C2720;border-bottom:2px solid #C9A84C;padding:0.9rem 1.2rem;display:flex;align-items:center;gap:0.8rem;flex-shrink:0;}
-    #dasc-bot-head .av{width:34px;height:34px;background:rgba(201,168,76,0.18);border:1px solid rgba(201,168,76,0.4);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
-    #dasc-bot-head .nm{font-family:'Bebas Neue',sans-serif;letter-spacing:0.15em;font-size:0.9rem;color:#F2EAD8;}
-    #dasc-bot-head .st{font-size:0.6rem;color:#2ecc71;}
-    #dasc-bot-head .cl{margin-left:auto;background:none;border:none;color:rgba(242,234,216,0.45);font-size:1rem;cursor:pointer;}
-    #dasc-bot-head .cl:hover{color:#C9A84C;}
-    #dasc-bot-msgs{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:0.7rem;scrollbar-width:thin;scrollbar-color:rgba(201,168,76,0.3) transparent;}
-    #dasc-bot-msgs::-webkit-scrollbar{width:3px;}
-    #dasc-bot-msgs::-webkit-scrollbar-thumb{background:rgba(201,168,76,0.3);}
-    .bm{max-width:88%;font-size:0.8rem;line-height:1.6;padding:0.7rem 0.95rem;animation:bmpop 0.25s ease;}
-    @keyframes bmpop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-    .bm.bot{background:#0C2720;border:1px solid rgba(201,168,76,0.15);color:#F2EAD8;align-self:flex-start;}
-    .bm.user{background:#C9A84C;color:#0C2720;font-weight:500;align-self:flex-end;}
-    .btyp{display:flex;gap:4px;align-items:center;padding:0.7rem 0.95rem;background:#0C2720;border:1px solid rgba(201,168,76,0.15);align-self:flex-start;}
-    .btyp span{width:6px;height:6px;background:#C9A84C;border-radius:50%;animation:bdot 1.2s infinite;}
-    .btyp span:nth-child(2){animation-delay:0.2s}.btyp span:nth-child(3){animation-delay:0.4s}
-    @keyframes bdot{0%,100%{opacity:0.2;transform:scale(0.8)}50%{opacity:1;transform:scale(1)}}
-    #dasc-bot-chips{display:flex;flex-wrap:wrap;gap:0.4rem;padding:0.5rem 1rem;flex-shrink:0;}
-    .bchip{font-size:0.6rem;padding:0.32rem 0.75rem;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.38);color:#C9A84C;cursor:pointer;transition:background 0.2s;white-space:nowrap;}
-    .bchip:hover{background:rgba(201,168,76,0.24);}
-    #dasc-bot-input-row{display:flex;border-top:1px solid rgba(201,168,76,0.2);flex-shrink:0;}
-    #dasc-bot-input{flex:1;background:#0C2720;border:none;color:#F2EAD8;font-size:0.8rem;padding:0.8rem 1rem;outline:none;}
-    #dasc-bot-input::placeholder{color:rgba(242,234,216,0.28);}
-    #dasc-bot-send{background:#C9A84C;border:none;color:#0C2720;padding:0 1.1rem;font-size:1rem;cursor:pointer;}
-    #dasc-bot-send:hover{background:#DFC07A;}
-    @media(max-width:480px){#dasc-bot-box{width:calc(100vw - 2rem);right:1rem;bottom:5rem;max-height:60vh;}#dasc-bot-btn{right:1rem;bottom:1rem;}}
-  </style>`);
-
-      document.body.insertAdjacentHTML('beforeend',`
-    <button id="dasc-bot-btn" aria-label="Chat with us">💬<span id="dasc-bot-dot">1</span></button>
-    <div id="dasc-bot-box">
-      <div id="dasc-bot-head"><div class="av">🤖</div><div><div class="nm">DASC ASSISTANT</div><div class="st">● Online</div></div><button class="cl" id="dasc-bot-close">✕</button></div>
-      <div id="dasc-bot-msgs"></div><div id="dasc-bot-chips"></div>
-      <div id="dasc-bot-input-row"><input id="dasc-bot-input" placeholder="Type a message…" autocomplete="off"/><button id="dasc-bot-send">➤</button></div>
-    </div>`);
-
-      const btn=document.getElementById('dasc-bot-btn'),box=document.getElementById('dasc-bot-box'),dot=document.getElementById('dasc-bot-dot'),close=document.getElementById('dasc-bot-close'),msgs=document.getElementById('dasc-bot-msgs'),chips=document.getElementById('dasc-bot-chips'),inp=document.getElementById('dasc-bot-input'),send=document.getElementById('dasc-bot-send');
-      let open=false;
-      function openBot(){box.classList.add('open');open=true;dot.style.display='none';btn.innerHTML='✕';inp.focus();if(!msgs.children.length)respond('hello');}
-      function closeBot(){box.classList.remove('open');open=false;btn.innerHTML='💬<span id="dasc-bot-dot" style="display:none">1</span>';}
-      btn.addEventListener('click',()=>open?closeBot():openBot());
-      close.addEventListener('click',closeBot);
-      function addMsg(html,who){const d=document.createElement('div');d.className='bm '+who;d.innerHTML=html;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;}
-      function setChips(list){chips.innerHTML='';list.forEach(l=>{const c=document.createElement('button');c.className='bchip';c.textContent=l;c.onclick=()=>handleInput(l);chips.appendChild(c);});}
-      function typing(){const t=document.createElement('div');t.className='btyp';t.id='btyp';t.innerHTML='<span></span><span></span><span></span>';msgs.appendChild(t);msgs.scrollTop=msgs.scrollHeight;}
-      function rmTyping(){const t=document.getElementById('btyp');if(t)t.remove();}
-      function respond(text){const r=getResponse(text);addMsg(r.reply,'bot');setChips(r.chips);}
-      function handleInput(text){const t=text.trim();if(!t)return;addMsg(t,'user');inp.value='';chips.innerHTML='';typing();setTimeout(()=>{rmTyping();respond(t);},500+Math.random()*300);}
-      send.addEventListener('click',()=>handleInput(inp.value));
-      inp.addEventListener('keydown',e=>{if(e.key==='Enter')handleInput(inp.value);});
-    })();
   </script>
 </body>
 </html>
