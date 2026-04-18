@@ -1,0 +1,2782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Da Strength Club | Supplements</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --jade: #0C2720;
+      --jade-mid: #113328;
+      --jade-light: #1A4535;
+      --jade-hover: #1F5040;
+      --gold: #C9A84C;
+      --gold-light: #DFC07A;
+      --gold-dim: rgba(201,168,76,0.18);
+      --gold-border: rgba(201,168,76,0.35);
+      --cream: #F2EAD8;
+      --cream-muted: rgba(242,234,216,0.55);
+      --cream-ghost: rgba(242,234,216,0.12);
+      --rule: rgba(201,168,76,0.2);
+      --shadow-jade: 0 24px 64px rgba(12,39,32,0.7);
+      --ff-display: 'Bebas Neue', sans-serif;
+      --ff-serif: 'Cormorant Garamond', serif;
+      --ff-body: 'Jost', sans-serif;
+      --ease-out: cubic-bezier(0.22,1,0.36,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background:
+        radial-gradient(circle at top right, rgba(201,168,76,0.12), transparent 26%),
+        linear-gradient(180deg, #0a221c 0%, var(--jade) 42%, #0b211b 100%);
+      color: var(--cream);
+      font-family: var(--ff-body);
+      font-weight: 300;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; width: 100%; object-fit: cover; }
+    section { position: relative; padding: 4.5rem 7vw; }
+
+    header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 5vw;
+      background: rgba(12,39,32,0.84);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--rule);
+      transition: background 0.35s ease, box-shadow 0.35s ease;
+    }
+    header.scrolled { background: rgba(12,39,32,0.97); box-shadow: 0 8px 48px rgba(0,0,0,0.35); }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .logo-slot { display: flex; align-items: center; }
+    .logo-slot img { height: 80px; width: auto; object-fit: contain; }
+    .brand-name { font-family: var(--ff-display); font-size: 1.8rem; letter-spacing: 1px; color: var(--cream); line-height: 1; }
+    nav { display: flex; gap: 2.4rem; align-items: center; }
+    nav a {
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cream-muted);
+      position: relative;
+      transition: color 0.25s;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width 0.35s var(--ease-out);
+    }
+    nav a:hover, nav a.active { color: var(--gold); }
+    nav a:hover::after, nav a.active::after { width: 100%; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      z-index: 200;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--cream);
+      transition: transform 0.35s var(--ease-out), opacity 0.25s, background 0.25s;
+    }
+    .hamburger.active span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); background: var(--gold); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); background: var(--gold); }
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(12,39,32,0.98);
+      backdrop-filter: blur(24px);
+      z-index: 90;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      opacity: 0;
+      transform: translateY(-16px);
+      transition: opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out);
+      pointer-events: none;
+    }
+    .mobile-nav.open { display: flex; opacity: 1; transform: none; pointer-events: auto; }
+    .mobile-nav a { font-family: var(--ff-display); font-size: clamp(2rem,8vw,3.5rem); letter-spacing: 0.16em; color: var(--cream-muted); text-transform: uppercase; }
+    .mobile-nav a:hover, .mobile-nav a.active { color: var(--gold); }
+    .mobile-nav-divider { width: 40px; height: 1px; background: var(--gold); opacity: 0.4; }
+    .mobile-nav-sub { font-size: 0.6rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); opacity: 0.6; margin-top: -0.6rem; }
+
+    .hero {
+      min-height: 62svh;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      padding-top: 88px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 90px;
+      background: linear-gradient(to top, var(--jade), transparent);
+      pointer-events: none;
+    }
+    .hero-copy {
+      padding: 4.5rem 5vw 3rem 7vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.64rem;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.7rem;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 36px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .hero-title {
+      font-family: var(--ff-display);
+      font-size: clamp(3rem, 8vw, 7rem);
+      line-height: 0.88;
+      letter-spacing: 0.02em;
+    }
+    .hero-title .gold-line { color: var(--gold); display: block; }
+    .hero-sub {
+      margin-top: 1rem;
+      max-width: 32ch;
+      color: var(--cream-muted);
+      font-size: 0.92rem;
+      padding-left: 0;
+      border-left: none;
+      font-family: var(--ff-body);
+      font-style: normal;
+    }
+    .hero-actions {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+    .btn-gold, .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 190px;
+      padding: 0.95rem 2.2rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      transition: transform 0.25s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+      clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--jade);
+      box-shadow: 0 12px 40px rgba(201,168,76,0.25);
+    }
+    .btn-outline {
+      border: 1px solid var(--gold-border);
+      background: transparent;
+      color: var(--cream);
+    }
+    .btn-gold:hover, .btn-outline:hover {
+      transform: translateY(-2px);
+    }
+    .btn-gold:hover { background: var(--gold-light); }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    .hero-visual {
+      position: relative;
+      min-height: 360px;
+      overflow: hidden;
+    }
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(120deg, rgba(12,39,32,0.8) 12%, rgba(12,39,32,0.14) 55%, rgba(12,39,32,0.72) 100%),
+        linear-gradient(180deg, rgba(12,39,32,0.18), rgba(12,39,32,0.75));
+      z-index: 1;
+    }
+    .hero-visual img { height: 100%; min-height: 100%; }
+    .hero-card {
+      position: absolute;
+      right: 5vw;
+      bottom: 1.5rem;
+      z-index: 2;
+      width: min(300px, 78%);
+      padding: 1.2rem 1.3rem;
+      background: rgba(12,39,32,0.7);
+      border: 1px solid var(--gold-border);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow-jade);
+    }
+    .hero-card-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .hero-card h2 {
+      margin-top: 0.55rem;
+      font-family: var(--ff-display);
+      font-size: clamp(1.3rem, 3vw, 2.2rem);
+      letter-spacing: 0.08em;
+      line-height: 0.95;
+    }
+    .hero-card p {
+      margin-top: 0.45rem;
+      font-size: 0.78rem;
+      color: var(--cream-muted);
+    }
+
+    .section-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .mini-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.62rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .mini-label::before {
+      content: "";
+      width: 24px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      align-items: end;
+      margin-bottom: 1.8rem;
+      flex-wrap: wrap;
+    }
+    .section-title {
+      font-family: var(--ff-display);
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      line-height: 0.95;
+      letter-spacing: 0.06em;
+    }
+    .section-title .outlined {
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(242,234,216,0.45);
+      display: block;
+    }
+    .section-intro {
+      max-width: 34ch;
+      color: var(--cream-muted);
+      font-size: 0.86rem;
+    }
+
+    .collections { background: linear-gradient(180deg, rgba(17,51,40,0.65), rgba(12,39,32,0.9)); }
+    .mb-launch {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 1.2rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid var(--rule);
+      background: rgba(12,39,32,0.74);
+      overflow: hidden;
+    }
+    .mb-gallery {
+      position: relative;
+      min-height: 420px;
+      background: rgba(17,51,40,0.84);
+    }
+    .mb-main-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+      padding: 1.5rem;
+    }
+    .mb-gallery-controls {
+      position: absolute;
+      inset: auto 1rem 1rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 1rem;
+    }
+    .mb-thumbs {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .mb-thumb {
+      width: 58px;
+      height: 58px;
+      border: 1px solid var(--rule);
+      background: rgba(12,39,32,0.78);
+      padding: 0;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    .mb-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .mb-thumb.active {
+      border-color: var(--gold);
+    }
+    .mb-nav {
+      display: flex;
+      gap: 0.55rem;
+    }
+    .mb-nav button {
+      width: 46px;
+      height: 46px;
+      border: 1px solid var(--gold-border);
+      background: rgba(12,39,32,0.84);
+      color: var(--cream);
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .mb-copy {
+      padding: 1.5rem 1.6rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .mb-brandline {
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .mb-title {
+      margin-top: 0.7rem;
+      font-family: var(--ff-display);
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      line-height: 0.92;
+      letter-spacing: 0.06em;
+      color: var(--cream);
+    }
+    .mb-desc {
+      margin-top: 0.8rem;
+      color: var(--cream-muted);
+      font-size: 0.88rem;
+      max-width: 48ch;
+    }
+    .mb-priceboard {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-top: 1rem;
+      padding: 1rem 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .mb-priceblock strong {
+      display: block;
+      font-size: 0.58rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 400;
+    }
+    .mb-priceblock span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--cream);
+    }
+    .mb-price-mrp {
+      font-size: 0.82rem;
+      color: var(--cream-muted);
+      text-decoration: line-through;
+      opacity: 0.75;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .mb-price-offer {
+      font-family: var(--ff-serif);
+      font-size: 1.55rem;
+      color: var(--cream);
+      line-height: 1.05;
+    }
+    .mb-flavours {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 1rem;
+    }
+    .mb-flavour {
+      border: 1px solid var(--gold-border);
+      background: rgba(12,39,32,0.7);
+      color: var(--cream);
+      padding: 0.85rem 1rem;
+      cursor: pointer;
+      text-align: left;
+      min-width: 150px;
+    }
+    .mb-flavour strong {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--cream);
+      font-weight: 500;
+    }
+    .mb-flavour span {
+      display: block;
+      margin-top: 0.15rem;
+      font-size: 0.66rem;
+      color: var(--cream-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .mb-flavour.active {
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.12);
+    }
+    .mb-points {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 1rem;
+      color: var(--cream-muted);
+      font-size: 0.82rem;
+    }
+    .mb-points div::before {
+      content: "•";
+      color: var(--gold);
+      margin-right: 0.5rem;
+    }
+    .mb-action-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.2rem;
+    }
+    .mb-action-row .btn-gold,
+    .mb-action-row .btn-outline {
+      min-width: 0;
+      flex: 1;
+      padding-inline: 1rem;
+    }
+    .collection-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+    }
+    .collection-card {
+      background: rgba(12,39,32,0.74);
+      border: 1px solid var(--rule);
+      overflow: hidden;
+      transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+    .collection-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--gold-border);
+      box-shadow: 0 26px 60px rgba(0,0,0,0.35);
+    }
+    .collection-media { height: 300px; overflow: hidden; }
+    .collection-media img { height: 100%; transition: transform 0.8s var(--ease-out); }
+    .collection-card:hover .collection-media img { transform: scale(1.06); }
+    .collection-body { padding: 2rem 1.8rem 2.2rem; }
+    .collection-kicker {
+      color: var(--gold);
+      font-size: 0.64rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+    }
+    .collection-body h3 {
+      margin-top: 0.8rem;
+      font-family: var(--ff-display);
+      font-size: 2rem;
+      letter-spacing: 0.08em;
+      line-height: 1;
+    }
+    .collection-price {
+      margin-top: 0.9rem;
+      font-family: var(--ff-serif);
+      font-size: 1.4rem;
+      color: var(--cream);
+    }
+    .collection-body p {
+      margin-top: 0.9rem;
+      color: var(--cream-muted);
+      font-size: 0.88rem;
+    }
+    .collection-list {
+      list-style: none;
+      margin-top: 1.3rem;
+      display: grid;
+      gap: 0.55rem;
+    }
+    .collection-list li {
+      padding-left: 1rem;
+      position: relative;
+      color: var(--cream);
+      font-size: 0.82rem;
+    }
+    .collection-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.78rem;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .shop-tools {
+      display: grid;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+      padding: 1.1rem;
+      border: 1px solid var(--rule);
+      background: rgba(12,39,32,0.76);
+    }
+    .shop-tools-top {
+      display: grid;
+      grid-template-columns: 1.25fr 0.9fr;
+      gap: 1rem;
+      align-items: center;
+    }
+    .search-shell {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.9rem 1rem;
+      border: 1px solid var(--rule);
+      background: rgba(17,51,40,0.6);
+    }
+    .search-shell span {
+      color: var(--gold);
+      font-size: 0.9rem;
+    }
+    .search-shell input,
+    .sort-select {
+      width: 100%;
+      border: none;
+      background: transparent;
+      color: var(--cream);
+      font-family: var(--ff-body);
+      font-size: 0.88rem;
+      outline: none;
+    }
+    .sort-shell {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.9rem 1rem;
+      border: 1px solid var(--rule);
+      background: rgba(17,51,40,0.6);
+    }
+    .sort-shell label {
+      color: var(--gold);
+      font-size: 0.58rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .sort-select option {
+      color: var(--cream);
+      background: var(--jade);
+    }
+    .filter-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .filter-chips {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+    }
+    .filter-chip {
+      border: 1px solid var(--gold-border);
+      background: rgba(17,51,40,0.52);
+      color: var(--cream);
+      padding: 0.7rem 0.95rem;
+      cursor: pointer;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .filter-chip.active {
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.12);
+      color: var(--gold);
+    }
+    .results-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+      color: var(--cream-muted);
+      font-size: 0.78rem;
+    }
+    .results-meta strong {
+      color: var(--cream);
+      font-weight: 500;
+    }
+    .results-empty {
+      display: none;
+      padding: 1.4rem;
+      border: 1px solid var(--rule);
+      background: rgba(17,51,40,0.55);
+      color: var(--cream-muted);
+      font-size: 0.9rem;
+    }
+    .results-empty.visible {
+      display: block;
+    }
+    .product-box {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      background: rgba(12,39,32,0.8);
+      border: 1px solid var(--rule);
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+    .product-box:hover {
+      transform: translateY(-6px);
+      border-color: var(--gold-border);
+      box-shadow: 0 22px 50px rgba(0,0,0,0.3);
+    }
+    .product-box-media {
+      position: relative;
+      height: 310px;
+      overflow: hidden;
+      background: rgba(17,51,40,0.7);
+      cursor: pointer;
+    }
+    .product-box-media img {
+      height: 100%;
+      transition: transform 0.7s var(--ease-out);
+    }
+    .product-box:hover .product-box-media img {
+      transform: scale(1.05);
+    }
+    .product-tag {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      z-index: 1;
+      padding: 0.45rem 0.8rem;
+      background: rgba(12,39,32,0.76);
+      border: 1px solid var(--gold-border);
+      color: var(--gold);
+      font-size: 0.58rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+    .product-tag-row {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      display: grid;
+      gap: 0.45rem;
+      z-index: 1;
+    }
+    .product-badge {
+      padding: 0.4rem 0.65rem;
+      background: rgba(12,39,32,0.8);
+      border: 1px solid var(--gold-border);
+      color: var(--cream);
+      font-size: 0.54rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+    .product-badge.gold {
+      color: var(--gold);
+    }
+    .product-box-body {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 1.4rem;
+    }
+    .product-box-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: start;
+    }
+    .product-box-title {
+      font-family: var(--ff-display);
+      font-size: 1.7rem;
+      letter-spacing: 0.08em;
+      line-height: 0.95;
+      color: var(--cream);
+      cursor: pointer;
+    }
+    .product-box-price {
+      white-space: nowrap;
+      text-align: right;
+    }
+    .product-box-price .mrp {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--cream-muted);
+      text-decoration: line-through;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .product-box-price .offer {
+      display: block;
+      margin-top: 0.15rem;
+      font-family: var(--ff-serif);
+      font-size: 1.34rem;
+      color: var(--cream);
+    }
+    .product-box-sub {
+      margin-top: 0.75rem;
+      color: var(--cream-muted);
+      font-size: 0.84rem;
+    }
+    .product-scoreline {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      margin-top: 0.9rem;
+      color: var(--cream-muted);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    .product-scoreline strong {
+      color: var(--gold);
+      font-weight: 400;
+    }
+    .product-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 1rem;
+    }
+    .product-chip-row span {
+      padding: 0.42rem 0.7rem;
+      border: 1px solid var(--gold-border);
+      background: rgba(201,168,76,0.08);
+      color: var(--cream);
+      font-size: 0.68rem;
+    }
+    .product-box-meta {
+      margin-top: 1rem;
+      display: grid;
+      gap: 0.55rem;
+      color: var(--cream-muted);
+      font-size: 0.78rem;
+    }
+    .product-box-meta strong {
+      color: var(--gold);
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.6rem;
+      margin-right: 0.45rem;
+    }
+    .inventory-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      align-items: center;
+      margin-top: 1rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid var(--rule);
+      color: var(--cream-muted);
+      font-size: 0.74rem;
+    }
+    .inventory-line strong {
+      color: var(--gold);
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.58rem;
+      margin-right: 0.45rem;
+    }
+    .product-box-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: auto;
+      padding-top: 1.2rem;
+    }
+    .product-box-actions .btn-gold,
+    .product-box-actions .btn-outline {
+      min-width: 0;
+      flex: 1;
+      padding-inline: 1rem;
+    }
+    .product-box-actions .btn-outline {
+      min-width: 56px;
+      flex: 0 0 56px;
+      padding: 0.95rem 0;
+    }
+    .card-unit-toggle {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.55rem;
+      margin-top: 1rem;
+    }
+    .card-unit-btn {
+      border: 1px solid var(--rule);
+      background: rgba(17,51,40,0.62);
+      color: var(--cream);
+      padding: 0.75rem 0.8rem;
+      text-align: left;
+      cursor: pointer;
+    }
+    .card-unit-btn.active {
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.1);
+    }
+    .card-unit-btn strong {
+      display: block;
+      font-size: 0.56rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 400;
+    }
+    .card-unit-btn span {
+      display: block;
+      margin-top: 0.25rem;
+      font-size: 0.8rem;
+      color: var(--cream);
+    }
+    .card-unit-btn .mini-mrp {
+      margin-top: 0.2rem;
+      font-size: 0.64rem;
+      color: var(--cream-muted);
+      text-decoration: line-through;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .detail-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      background: rgba(5, 16, 13, 0.78);
+      backdrop-filter: blur(12px);
+    }
+    .detail-modal.open {
+      display: flex;
+    }
+    .detail-panel {
+      width: min(1080px, 100%);
+      max-height: 92vh;
+      overflow: auto;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      background: rgba(12,39,32,0.98);
+      border: 1px solid var(--gold-border);
+      box-shadow: 0 26px 80px rgba(0,0,0,0.45);
+    }
+    .detail-media {
+      min-height: 520px;
+      background: rgba(17,51,40,0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .detail-media img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    .detail-copy {
+      padding: 1.6rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .detail-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: start;
+    }
+    .detail-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .detail-close {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--gold-border);
+      background: rgba(17,51,40,0.7);
+      color: var(--cream);
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .detail-title {
+      margin-top: 0.65rem;
+      font-family: var(--ff-display);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 0.95;
+      letter-spacing: 0.06em;
+      color: var(--cream);
+    }
+    .detail-desc {
+      margin-top: 0.8rem;
+      color: var(--cream-muted);
+      font-size: 0.92rem;
+      max-width: 52ch;
+    }
+    .detail-unit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem;
+      margin-top: 1.2rem;
+    }
+    .detail-unit {
+      border: 1px solid var(--rule);
+      background: rgba(17,51,40,0.62);
+      padding: 1rem;
+      cursor: pointer;
+      text-align: left;
+    }
+    .detail-unit.active {
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.1);
+    }
+    .detail-unit strong {
+      display: block;
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 400;
+    }
+    .detail-unit .u-size {
+      display: block;
+      margin-top: 0.45rem;
+      color: var(--cream);
+      font-size: 0.92rem;
+    }
+    .detail-unit .u-mrp {
+      display: block;
+      margin-top: 0.45rem;
+      color: var(--cream-muted);
+      text-decoration: line-through;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .detail-unit .u-offer {
+      display: block;
+      margin-top: 0.18rem;
+      color: var(--cream);
+      font-family: var(--ff-serif);
+      font-size: 1.45rem;
+    }
+    .detail-points {
+      display: grid;
+      gap: 0.6rem;
+      margin-top: 1.2rem;
+      color: var(--cream-muted);
+      font-size: 0.86rem;
+    }
+    .detail-points div::before {
+      content: "•";
+      color: var(--gold);
+      margin-right: 0.5rem;
+    }
+    .detail-actions {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 1.3rem;
+      flex-wrap: wrap;
+    }
+    .detail-actions .btn-gold,
+    .detail-actions .btn-outline {
+      min-width: 0;
+      flex: 1;
+      padding-inline: 1rem;
+    }
+    .detail-qty-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1.1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule);
+    }
+    .detail-qty-row span {
+      color: var(--cream-muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .qty-stepper {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--gold-border);
+      background: rgba(17,51,40,0.62);
+    }
+    .qty-stepper button {
+      width: 42px;
+      height: 42px;
+      border: none;
+      background: transparent;
+      color: var(--cream);
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .qty-stepper strong {
+      min-width: 46px;
+      text-align: center;
+      color: var(--cream);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .shop-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--rule);
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .shop-point {
+      padding: 0.95rem 1rem;
+      background: rgba(12,39,32,0.92);
+    }
+    .shop-point strong {
+      display: block;
+      color: var(--gold);
+      font-size: 0.62rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+      font-weight: 400;
+    }
+    .shop-point span {
+      color: var(--cream-muted);
+      font-size: 0.76rem;
+    }
+    .cart-bar {
+      position: fixed;
+      left: 1rem;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 120;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--gold-border);
+      background: rgba(12,39,32,0.92);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+    }
+    .cart-summary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 1.5rem;
+      align-items: center;
+    }
+    .cart-stat strong {
+      display: block;
+      font-size: 0.58rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 400;
+    }
+    .cart-stat span {
+      font-size: 0.96rem;
+      color: var(--cream);
+    }
+    .cart-actions {
+      display: flex;
+      gap: 0.8rem;
+      align-items: center;
+    }
+    .cart-actions .btn-gold,
+    .cart-actions .btn-outline {
+      min-width: 0;
+      padding-inline: 1.3rem;
+    }
+    .invoice-section {
+      background: linear-gradient(180deg, rgba(17,51,40,0.75), rgba(12,39,32,0.96));
+    }
+    .checkout-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 1.4rem;
+      align-items: start;
+    }
+    .checkout-panel,
+    .invoice-panel {
+      border: 1px solid var(--rule);
+      background: rgba(12,39,32,0.78);
+      padding: 2rem;
+    }
+    .checkout-panel h3,
+    .invoice-panel h3 {
+      font-family: var(--ff-display);
+      font-size: 2rem;
+      letter-spacing: 0.08em;
+      color: var(--cream);
+    }
+    .checkout-sub {
+      margin-top: 0.55rem;
+      color: var(--cream-muted);
+      font-size: 0.9rem;
+    }
+    .checkout-form {
+      margin-top: 1.5rem;
+      display: grid;
+      gap: 1rem;
+    }
+    .checkout-stack {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .field-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .field label {
+      display: block;
+      margin-bottom: 0.45rem;
+      font-size: 0.58rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .field input,
+    .field textarea {
+      width: 100%;
+      border: 1px solid var(--rule);
+      background: rgba(17,51,40,0.55);
+      color: var(--cream);
+      font-family: var(--ff-body);
+      font-size: 0.9rem;
+      padding: 0.95rem 1rem;
+      outline: none;
+    }
+    .field textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    .field input:focus,
+    .field textarea:focus {
+      border-color: var(--gold);
+      background: rgba(17,51,40,0.8);
+    }
+    .choice-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem;
+    }
+    .choice-card {
+      border: 1px solid var(--rule);
+      background: rgba(17,51,40,0.55);
+      padding: 1rem;
+      cursor: pointer;
+      transition: border-color 0.25s ease, background 0.25s ease;
+    }
+    .choice-card.active {
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.08);
+    }
+    .choice-card strong {
+      display: block;
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 400;
+    }
+    .choice-card span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--cream);
+      font-size: 0.88rem;
+    }
+    .choice-card small {
+      display: block;
+      margin-top: 0.28rem;
+      color: var(--cream-muted);
+      font-size: 0.72rem;
+    }
+    .upi-panel {
+      display: none;
+      gap: 1rem;
+      padding: 1rem;
+      border: 1px solid var(--gold-border);
+      background: rgba(17,51,40,0.58);
+    }
+    .upi-panel.visible {
+      display: grid;
+    }
+    .qr-shell {
+      display: grid;
+      place-items: center;
+      min-height: 250px;
+      border: 1px dashed var(--gold-border);
+      background:
+        linear-gradient(180deg, rgba(242,234,216,0.04), rgba(242,234,216,0.01)),
+        rgba(12,39,32,0.85);
+      padding: 1.2rem;
+    }
+    .qr-shell img {
+      width: min(240px, 100%);
+      aspect-ratio: 1;
+      object-fit: contain;
+      background: #fff;
+      padding: 0.8rem;
+    }
+    .qr-meta strong {
+      display: block;
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 400;
+    }
+    .qr-meta p {
+      margin-top: 0.35rem;
+      color: var(--cream-muted);
+      font-size: 0.82rem;
+    }
+    .summary-card {
+      display: grid;
+      gap: 0.75rem;
+      padding: 1rem;
+      border: 1px solid var(--rule);
+      background: rgba(17,51,40,0.5);
+    }
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      color: var(--cream-muted);
+      font-size: 0.85rem;
+    }
+    .summary-line strong {
+      color: var(--cream);
+      font-weight: 400;
+    }
+    .summary-line.grand {
+      padding-top: 0.7rem;
+      border-top: 1px solid var(--rule);
+      color: var(--cream);
+      font-size: 1rem;
+    }
+    .summary-line.grand strong,
+    .summary-line.grand span {
+      color: var(--cream);
+      font-family: var(--ff-serif);
+      font-size: 1.35rem;
+    }
+    .invoice-sheet {
+      margin-top: 1.4rem;
+      border: 1px solid var(--gold-border);
+      background: linear-gradient(180deg, rgba(12,39,32,0.82), rgba(17,51,40,0.55));
+    }
+    .invoice-head,
+    .invoice-foot {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.3rem 1.4rem;
+      border-bottom: 1px solid var(--rule);
+      flex-wrap: wrap;
+    }
+    .invoice-foot {
+      border-bottom: none;
+      border-top: 1px solid var(--rule);
+    }
+    .invoice-label {
+      font-size: 0.58rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .invoice-value {
+      margin-top: 0.2rem;
+      font-size: 0.9rem;
+      color: var(--cream);
+    }
+    .invoice-list {
+      padding: 0.5rem 1.4rem 1rem;
+    }
+    .invoice-line {
+      display: grid;
+      grid-template-columns: 1.4fr 0.5fr 0.8fr 0.55fr;
+      gap: 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: center;
+    }
+    .invoice-line:last-child {
+      border-bottom: none;
+    }
+    .invoice-item-name {
+      font-size: 0.9rem;
+      color: var(--cream);
+    }
+    .invoice-item-meta {
+      font-size: 0.74rem;
+      color: var(--cream-muted);
+      margin-top: 0.15rem;
+    }
+    .invoice-qty,
+    .invoice-amount {
+      font-size: 0.88rem;
+      color: var(--cream);
+      text-align: right;
+    }
+    .invoice-remove {
+      justify-self: end;
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--gold-border);
+      background: rgba(17,51,40,0.72);
+      color: var(--cream);
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .invoice-empty {
+      padding: 1rem 0;
+      color: var(--cream-muted);
+      font-size: 0.9rem;
+    }
+    .invoice-total {
+      text-align: right;
+    }
+    .invoice-total strong {
+      display: block;
+      font-size: 0.58rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 400;
+    }
+    .invoice-total span {
+      display: block;
+      margin-top: 0.2rem;
+      font-family: var(--ff-serif);
+      font-size: 1.7rem;
+      color: var(--cream);
+    }
+    .invoice-summary {
+      padding: 0 1.4rem 1rem;
+      display: grid;
+      gap: 0.5rem;
+    }
+    .invoice-summary-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      color: var(--cream-muted);
+      font-size: 0.82rem;
+    }
+    .invoice-summary-line strong {
+      color: var(--cream);
+      font-weight: 400;
+    }
+    .invoice-pay {
+      color: var(--gold);
+    }
+    .invoice-qty-controls {
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+    }
+    .invoice-qty-btn {
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--gold-border);
+      background: rgba(17,51,40,0.72);
+      color: var(--cream);
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+    .checkout-note {
+      margin-top: 1rem;
+      color: var(--cream-muted);
+      font-size: 0.82rem;
+    }
+
+    footer {
+      background: var(--jade-mid);
+      border-top: 1px solid var(--rule);
+      padding: 4.5rem 7vw 3rem;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 3rem;
+      flex-wrap: wrap;
+      padding-bottom: 2.6rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .footer-tagline {
+      margin-top: 0.6rem;
+      font-family: var(--ff-serif);
+      font-style: italic;
+      color: var(--cream-muted);
+      font-size: clamp(1rem, 2.4vw, 1.45rem);
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4rem;
+    }
+    .footer-col h5 {
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .footer-col ul { list-style: none; display: grid; gap: 0.6rem; }
+    .footer-col li, .footer-col a { font-size: 0.82rem; color: var(--cream-muted); }
+    .footer-col a:hover { color: var(--cream); }
+    .footer-bottom {
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      color: rgba(242,234,216,0.25);
+      font-size: 0.72rem;
+    }
+    .footer-mark {
+      font-family: var(--ff-display);
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
+      color: rgba(201,168,76,0.2);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 1100px) {
+      .hero,
+      .checkout-grid,
+      .mb-launch { grid-template-columns: 1fr; }
+      .product-grid { grid-template-columns: 1fr 1fr; }
+      .shop-strip { grid-template-columns: 1fr; }
+      .shop-tools-top { grid-template-columns: 1fr; }
+      .hero-copy { padding: 4rem 6vw 2rem; }
+      .hero-visual { min-height: 300px; }
+    }
+
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .hamburger { display: flex; }
+      section { padding: 3.5rem 5vw; }
+      .hero { min-height: auto; }
+      .hero-copy { padding: 3.5rem 5vw 2rem; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .btn-gold, .btn-outline { width: 100%; }
+      .product-grid { grid-template-columns: 1fr; }
+      .shop-strip,
+      .field-grid,
+      .choice-grid { grid-template-columns: 1fr; }
+      .detail-panel { grid-template-columns: 1fr; }
+      .detail-media { min-height: 300px; }
+      .detail-unit-grid { grid-template-columns: 1fr; }
+      .hero-card { left: 5vw; right: 5vw; bottom: 1.5rem; width: auto; }
+      .footer-links { gap: 2rem; flex-direction: column; }
+      .checkout-panel,
+      .invoice-panel { padding: 1.4rem; }
+      .mb-copy { padding: 1.2rem; }
+      .cart-bar {
+        left: 0.75rem;
+        right: 0.75rem;
+        bottom: 0.75rem;
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .cart-actions { flex-direction: column; }
+    }
+
+    @media (max-width: 520px) {
+      .logo-slot img { height: 64px; }
+      .brand-name { font-size: 1.5rem; }
+      .invoice-line { grid-template-columns: 1fr; gap: 0.4rem; }
+      .invoice-qty,
+      .invoice-amount { text-align: left; }
+      .invoice-remove { justify-self: start; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <div class="mobile-nav-divider"></div>
+    <a href="index.html#training">Training</a>
+    <div class="mobile-nav-divider"></div>
+    <a href="product.html" class="active">Supplements</a>
+    <div class="mobile-nav-divider"></div>
+    <a href="index.html#enquiry">Enquire</a>
+    <p class="mobile-nav-sub">Da Strength Club · Kolkata</p>
+  </nav>
+
+  <header id="site-header">
+    <div class="brand">
+      <div class="logo-slot">
+        <img src="favicon.png" alt="Da Strength Club" />
+      </div>
+      <span class="brand-name">Da Strength Club</span>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#training">Training</a>
+      <a href="product.html" class="active">Supplements</a>
+      <a href="index.html#enquiry">Enquire</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow reveal visible">Da Strength Club Store</p>
+        <h1 class="hero-title reveal visible">
+          SHOP
+          <span class="gold-line">PRODUCTS</span>
+          NOW
+        </h1>
+        <p class="hero-sub reveal visible">Add products, review the invoice, and send the order to WhatsApp.</p>
+        <div class="hero-actions reveal visible">
+          <a href="#catalogue" class="btn-gold">Shop Now</a>
+          <a href="#checkout" class="btn-outline">Checkout</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="https://img6.hkrtcdn.com/40755/prd_4075485-MuscleBlaze-Protein-Bar-10-gm-Protein-6-bars-Cookies-Cream_o.jpg" alt="MuscleBlaze Protein Bar Cookies and Cream" loading="eager" fetchpriority="high" />
+        <div class="hero-card reveal visible">
+          <span class="hero-card-label">Top Seller</span>
+          <h2>PROTEIN<br>BAR</h2>
+          <p>Cookies &amp; Cream box offer.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="shop-strip">
+      <div class="shop-point"><strong>Products First</strong><span>Quick view pricing and fast add to cart.</span></div>
+      <div class="shop-point"><strong>Invoice Ready</strong><span>Buyer details fill automatically below.</span></div>
+      <div class="shop-point"><strong>WhatsApp Order</strong><span>Send the final order to +91 6291655507.</span></div>
+    </section>
+
+    <section class="collections" id="catalogue">
+      <div class="section-head">
+        <div>
+          <p class="section-tag reveal">Catalogue</p>
+          <h2 class="section-title reveal">PRODUCTS</h2>
+        </div>
+        <p class="section-intro reveal">Choose products and add them to cart.</p>
+      </div>
+
+      <div class="shop-tools reveal">
+        <div class="shop-tools-top">
+          <label class="search-shell" for="product-search">
+            <span>⌕</span>
+            <input id="product-search" type="search" placeholder="Search by flavour, brand, or product type" />
+          </label>
+          <div class="sort-shell">
+            <label for="sort-products">Sort</label>
+            <select class="sort-select" id="sort-products">
+              <option value="featured">Featured First</option>
+              <option value="price-low">Price Low To High</option>
+              <option value="price-high">Price High To Low</option>
+              <option value="name">Name A To Z</option>
+            </select>
+          </div>
+        </div>
+        <div class="filter-row">
+          <div class="filter-chips" id="filter-chips">
+            <button class="filter-chip active" type="button" data-filter="all">All Products</button>
+            <button class="filter-chip" type="button" data-filter="protein-bars">Protein Bars</button>
+            <button class="filter-chip" type="button" data-filter="wafer-bars">Wafer Bars</button>
+            <button class="filter-chip" type="button" data-filter="muscleblaze">MuscleBlaze</button>
+            <button class="filter-chip" type="button" data-filter="gnc">GNC</button>
+          </div>
+          <div class="results-meta">
+            <strong id="results-count">5 products</strong>
+            <span id="results-copy">Live catalogue ready for quick ordering</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-launch reveal" id="mb-bar-launch">
+        <div class="mb-gallery">
+          <img class="mb-main-image" id="mb-main-image" src="https://img6.hkrtcdn.com/40755/prd_4075485-MuscleBlaze-Protein-Bar-10-gm-Protein-6-bars-Cookies-Cream_o.jpg" alt="MuscleBlaze Protein Bar Cookies and Cream" />
+          <div class="mb-gallery-controls">
+            <div class="mb-thumbs" id="mb-thumbs"></div>
+            <div class="mb-nav">
+              <button type="button" id="mb-prev" aria-label="Previous product image">&#8592;</button>
+              <button type="button" id="mb-next" aria-label="Next product image">&#8594;</button>
+            </div>
+          </div>
+        </div>
+        <div class="mb-copy">
+          <span class="mb-brandline">MuscleBlaze Protein Bar</span>
+          <h3 class="mb-title" id="mb-title">Cookies &amp; Cream</h3>
+          <p class="mb-desc" id="mb-desc">Protein bar with 10g protein, vitamins, minerals and fibre for a quick snack that helps curb hunger while supporting daily protein intake.</p>
+
+          <div class="mb-priceboard">
+            <div class="mb-priceblock">
+              <strong>Per Bar</strong>
+              <span class="mb-price-mrp" id="mb-bar-mrp">MRP Rs 75</span>
+              <span class="mb-price-offer" id="mb-bar-price">Rs 70</span>
+            </div>
+            <div class="mb-priceblock">
+              <strong>Box Of 6</strong>
+              <span class="mb-price-mrp" id="mb-box-mrp">MRP Rs 450</span>
+              <span class="mb-price-offer" id="mb-box-price">Rs 375</span>
+            </div>
+          </div>
+
+          <div class="mb-flavours" id="mb-flavours">
+            <button class="mb-flavour active" type="button" data-flavour-key="cookies-cream">
+              <strong>Cookies &amp; Cream</strong>
+              <span>10g protein</span>
+            </button>
+            <button class="mb-flavour" type="button" data-flavour-key="choco-cranberry">
+              <strong>Choco Cranberry</strong>
+              <span>10g protein</span>
+            </button>
+            <button class="mb-flavour" type="button" data-flavour-key="choco-almond">
+              <strong>Choco Almond</strong>
+              <span>10g protein</span>
+            </button>
+          </div>
+
+          <div class="mb-points" id="mb-points">
+            <div>Helps maintain daily protein intake and supports snacking on the go.</div>
+            <div>Designed to keep you fuller for longer and away from unhealthy munching.</div>
+            <div>Box pricing set to your requested sell price: Rs 375 against MRP Rs 450.</div>
+          </div>
+
+          <div class="mb-action-row">
+            <button class="btn-gold" type="button" id="mb-add-cart">Add Box To Cart</button>
+            <button class="btn-outline" type="button" id="mb-view-checkout">View Invoice</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-grid" id="product-grid">
+        <article class="product-box reveal" data-product="MuscleBlaze Protein Bar Choco Cranberry" data-price="375" data-size="Box of 6" data-flavour="Choco Cranberry · 10g protein" data-piece-price="70" data-piece-mrp="75" data-piece-size="1 Bar" data-box-price="375" data-box-mrp="450" data-box-size="Box of 6" data-description="10g protein snack bar with a fruity chocolate profile for quick hunger control on the go." data-details="10g protein per bar|Good for travel snacking and quick hunger control|Commercial box offer available" data-category="protein-bars" data-brand="muscleblaze" data-rating="4.7" data-stock="Ready To Dispatch" data-popularity="94">
+          <div class="product-box-media">
+            <span class="product-tag">Protein Bar</span>
+            <div class="product-tag-row">
+              <span class="product-badge gold">Save Rs 75</span>
+              <span class="product-badge">Top Pick</span>
+            </div>
+            <img src="https://img10.hkrtcdn.com/38703/prd_3870289-MuscleBlaze-Protein-Bar-10-gm-Protein-6-bars-Choco-Cranberry_o.jpg" alt="MuscleBlaze Protein Bar Choco Cranberry" loading="lazy" />
+          </div>
+          <div class="product-box-body">
+            <div class="product-box-head">
+              <h3 class="product-box-title">CHOCO CRANBERRY</h3>
+              <div class="product-box-price"><span class="mrp">MRP Rs 450</span><span class="offer">Rs 375</span></div>
+            </div>
+            <p class="product-box-sub">10g protein snack bar with a fruity chocolate profile for quick hunger control on the go.</p>
+            <div class="product-scoreline"><span><strong>Rating</strong> 4.7 / 5</span><span><strong>Brand</strong> MuscleBlaze</span></div>
+            <div class="product-chip-row">
+              <span>10g Protein</span>
+              <span>MRP 450</span>
+              <span>Box of 6</span>
+            </div>
+            <div class="product-box-meta">
+              <div><strong>Per Bar</strong> Rs 70</div>
+              <div><strong>Use</strong> Snack replacement or post-workout bite</div>
+            </div>
+            <div class="card-unit-toggle">
+              <button class="card-unit-btn js-card-unit active" type="button" data-unit="piece"><strong>Per Piece</strong><span>Rs 70</span><span class="mini-mrp">MRP Rs 75</span></button>
+              <button class="card-unit-btn js-card-unit" type="button" data-unit="box"><strong>Box of 6</strong><span>Rs 375</span><span class="mini-mrp">MRP Rs 450</span></button>
+            </div>
+            <div class="inventory-line"><span><strong>Stock</strong> Ready To Dispatch</span><span><strong>Delivery</strong> Kolkata support via WhatsApp</span></div>
+            <div class="product-box-actions">
+              <button class="btn-gold js-add-cart" type="button">Add To Cart</button>
+              <button class="btn-outline js-quick-add" type="button" aria-label="Quick add Choco Cranberry">+</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-box reveal" data-product="MuscleBlaze Protein Bar Cookies and Cream" data-price="375" data-size="Box of 6" data-flavour="Cookies & Cream · 10g protein" data-piece-price="70" data-piece-mrp="75" data-piece-size="1 Bar" data-box-price="375" data-box-mrp="450" data-box-size="Box of 6" data-description="10g protein flavour bar with vitamins, minerals and fibre for a convenient snack box." data-details="10g protein per bar|Easy snack replacement between meals|Cookies and cream flavour box offer" data-category="protein-bars" data-brand="muscleblaze" data-rating="4.8" data-stock="Ready To Dispatch" data-popularity="98">
+          <div class="product-box-media">
+            <span class="product-tag">Featured</span>
+            <div class="product-tag-row">
+              <span class="product-badge gold">Save Rs 75</span>
+              <span class="product-badge">Best Seller</span>
+            </div>
+            <img src="https://img6.hkrtcdn.com/40755/prd_4075485-MuscleBlaze-Protein-Bar-10-gm-Protein-6-bars-Cookies-Cream_o.jpg" alt="MuscleBlaze Protein Bar Cookies and Cream" loading="lazy" />
+          </div>
+          <div class="product-box-body">
+            <div class="product-box-head">
+              <h3 class="product-box-title">COOKIES &amp; CREAM</h3>
+              <div class="product-box-price"><span class="mrp">MRP Rs 450</span><span class="offer">Rs 375</span></div>
+            </div>
+            <p class="product-box-sub">10g protein flavour bar with vitamins, minerals and fibre for a convenient snack box.</p>
+            <div class="product-scoreline"><span><strong>Rating</strong> 4.8 / 5</span><span><strong>Brand</strong> MuscleBlaze</span></div>
+            <div class="product-chip-row">
+              <span>10g Protein</span>
+              <span>MRP 450</span>
+              <span>Box of 6</span>
+            </div>
+            <div class="product-box-meta">
+              <div><strong>Per Bar</strong> Rs 70</div>
+              <div><strong>Use</strong> Travel snack or daily protein support</div>
+            </div>
+            <div class="card-unit-toggle">
+              <button class="card-unit-btn js-card-unit active" type="button" data-unit="piece"><strong>Per Piece</strong><span>Rs 70</span><span class="mini-mrp">MRP Rs 75</span></button>
+              <button class="card-unit-btn js-card-unit" type="button" data-unit="box"><strong>Box of 6</strong><span>Rs 375</span><span class="mini-mrp">MRP Rs 450</span></button>
+            </div>
+            <div class="inventory-line"><span><strong>Stock</strong> Ready To Dispatch</span><span><strong>Delivery</strong> Fast WhatsApp confirmation</span></div>
+            <div class="product-box-actions">
+              <button class="btn-gold js-add-cart" type="button">Add To Cart</button>
+              <button class="btn-outline js-quick-add" type="button" aria-label="Quick add Cookies and Cream">+</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-box reveal" data-product="MuscleBlaze Protein Bar Choco Almond" data-price="375" data-size="Box of 6" data-flavour="Choco Almond · 10g protein" data-piece-price="70" data-piece-mrp="75" data-piece-size="1 Bar" data-box-price="375" data-box-mrp="450" data-box-size="Box of 6" data-description="10g protein snack bar with a chocolate almond profile for easy everyday protein support." data-details="10g protein per bar|Chocolate almond flavour|Available in piece and box selection" data-category="protein-bars" data-brand="muscleblaze" data-rating="4.6" data-stock="Low Stock" data-popularity="91">
+          <div class="product-box-media">
+            <span class="product-tag">Protein Bar</span>
+            <div class="product-tag-row">
+              <span class="product-badge gold">Save Rs 75</span>
+              <span class="product-badge">Low Stock</span>
+            </div>
+            <img src="https://img6.hkrtcdn.com/40459/prd_4045895-MuscleBlaze-Protein-Bar-10-gm-Protein-6-bars-Choco-Almond_o.jpg" alt="MuscleBlaze Protein Bar Choco Almond" loading="lazy" />
+          </div>
+          <div class="product-box-body">
+            <div class="product-box-head">
+              <h3 class="product-box-title">CHOCO ALMOND</h3>
+              <div class="product-box-price"><span class="mrp">MRP Rs 450</span><span class="offer">Rs 375</span></div>
+            </div>
+            <p class="product-box-sub">10g protein snack bar with a chocolate almond profile for easy everyday protein support.</p>
+            <div class="product-scoreline"><span><strong>Rating</strong> 4.6 / 5</span><span><strong>Brand</strong> MuscleBlaze</span></div>
+            <div class="product-chip-row">
+              <span>10g Protein</span>
+              <span>MRP 450</span>
+              <span>Box of 6</span>
+            </div>
+            <div class="product-box-meta">
+              <div><strong>Per Bar</strong> Rs 70</div>
+              <div><strong>Use</strong> Higher-protein snacking anytime</div>
+            </div>
+            <div class="card-unit-toggle">
+              <button class="card-unit-btn js-card-unit active" type="button" data-unit="piece"><strong>Per Piece</strong><span>Rs 70</span><span class="mini-mrp">MRP Rs 75</span></button>
+              <button class="card-unit-btn js-card-unit" type="button" data-unit="box"><strong>Box of 6</strong><span>Rs 375</span><span class="mini-mrp">MRP Rs 450</span></button>
+            </div>
+            <div class="inventory-line"><span><strong>Stock</strong> Low Stock</span><span><strong>Delivery</strong> Confirm flavour before dispatch</span></div>
+            <div class="product-box-actions">
+              <button class="btn-gold js-add-cart" type="button">Add To Cart</button>
+              <button class="btn-outline js-quick-add" type="button" aria-label="Quick add Choco Almond">+</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-box reveal" data-product="GNC Protein Wafer Bar Coffee" data-price="55" data-size="Pack of 1" data-flavour="Coffee · 10g protein" data-piece-price="55" data-piece-mrp="59" data-piece-size="Pack of 1" data-box-price="349" data-box-mrp="354" data-box-size="Box of 6" data-description="Crunchy protein wafer bar in coffee flavour with 10g protein, no added sugar, and a lighter snack format." data-details="10g protein wafer bar|No added sugar|Coffee flavour available in piece and box" data-category="wafer-bars" data-brand="gnc" data-rating="4.5" data-stock="Ready To Dispatch" data-popularity="88">
+          <div class="product-box-media">
+            <span class="product-tag">Wafer Bar</span>
+            <div class="product-tag-row">
+              <span class="product-badge gold">Save Rs 4</span>
+              <span class="product-badge">Crunchy</span>
+            </div>
+            <img src="https://www.guardian.in/cdn/shop/files/Protein-Wafer-Bar-Coffee-Front-2_4c3edcbd-cf38-4e69-9df8-f34d22daab9e.jpg?v=1764936802" alt="GNC Protein Wafer Bar Coffee" loading="lazy" />
+          </div>
+          <div class="product-box-body">
+            <div class="product-box-head">
+              <h3 class="product-box-title">GNC WAFER BAR COFFEE</h3>
+              <div class="product-box-price"><span class="mrp">MRP Rs 59</span><span class="offer">Rs 55</span></div>
+            </div>
+            <p class="product-box-sub">Crunchy protein wafer bar in coffee flavour with 10g protein, no added sugar, and a lighter snack format.</p>
+            <div class="product-scoreline"><span><strong>Rating</strong> 4.5 / 5</span><span><strong>Brand</strong> GNC</span></div>
+            <div class="product-chip-row">
+              <span>10g Protein</span>
+              <span>No Added Sugar</span>
+              <span>Pack of 1</span>
+            </div>
+            <div class="product-box-meta">
+              <div><strong>Use</strong> Anytime snack or light pre-workout bite</div>
+              <div><strong>Type</strong> Whey protein wafer bar</div>
+            </div>
+            <div class="card-unit-toggle">
+              <button class="card-unit-btn js-card-unit active" type="button" data-unit="piece"><strong>Per Piece</strong><span>Rs 55</span><span class="mini-mrp">MRP Rs 59</span></button>
+              <button class="card-unit-btn js-card-unit" type="button" data-unit="box"><strong>Box of 6</strong><span>Rs 349</span><span class="mini-mrp">MRP Rs 354</span></button>
+            </div>
+            <div class="inventory-line"><span><strong>Stock</strong> Ready To Dispatch</span><span><strong>Delivery</strong> Great for single-piece orders</span></div>
+            <div class="product-box-actions">
+              <button class="btn-gold js-add-cart" type="button">Add To Cart</button>
+              <button class="btn-outline js-quick-add" type="button" aria-label="Quick add GNC Protein Wafer Bar Coffee">+</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-box reveal" data-product="GNC Protein Wafer Bar Chocolate" data-price="55" data-size="Pack of 1" data-flavour="Chocolate · 10g protein" data-piece-price="55" data-piece-mrp="59" data-piece-size="Pack of 1" data-box-price="349" data-box-mrp="354" data-box-size="Box of 6" data-description="Chocolate flavour protein wafer with 10g protein and a crunchy wafer texture for guilt-free snacking." data-details="10g protein wafer bar|No added sugar|Chocolate flavour available in piece and box" data-category="wafer-bars" data-brand="gnc" data-rating="4.4" data-stock="Ready To Dispatch" data-popularity="86">
+          <div class="product-box-media">
+            <span class="product-tag">Wafer Bar</span>
+            <div class="product-tag-row">
+              <span class="product-badge gold">Save Rs 4</span>
+              <span class="product-badge">New Taste</span>
+            </div>
+            <img src="https://www.guardian.in/cdn/shop/files/ChocolateFront.jpg?v=1764936802" alt="GNC Protein Wafer Bar Chocolate" loading="lazy" />
+          </div>
+          <div class="product-box-body">
+            <div class="product-box-head">
+              <h3 class="product-box-title">GNC WAFER BAR CHOCOLATE</h3>
+              <div class="product-box-price"><span class="mrp">MRP Rs 59</span><span class="offer">Rs 55</span></div>
+            </div>
+            <p class="product-box-sub">Chocolate flavour protein wafer with 10g protein and a crunchy wafer texture for guilt-free snacking.</p>
+            <div class="product-scoreline"><span><strong>Rating</strong> 4.4 / 5</span><span><strong>Brand</strong> GNC</span></div>
+            <div class="product-chip-row">
+              <span>10g Protein</span>
+              <span>No Added Sugar</span>
+              <span>Pack of 1</span>
+            </div>
+            <div class="product-box-meta">
+              <div><strong>Use</strong> Midday snack or quick protein bite</div>
+              <div><strong>Type</strong> Whey protein wafer bar</div>
+            </div>
+            <div class="card-unit-toggle">
+              <button class="card-unit-btn js-card-unit active" type="button" data-unit="piece"><strong>Per Piece</strong><span>Rs 55</span><span class="mini-mrp">MRP Rs 59</span></button>
+              <button class="card-unit-btn js-card-unit" type="button" data-unit="box"><strong>Box of 6</strong><span>Rs 349</span><span class="mini-mrp">MRP Rs 354</span></button>
+            </div>
+            <div class="inventory-line"><span><strong>Stock</strong> Ready To Dispatch</span><span><strong>Delivery</strong> Available in piece and box</span></div>
+            <div class="product-box-actions">
+              <button class="btn-gold js-add-cart" type="button">Add To Cart</button>
+              <button class="btn-outline js-quick-add" type="button" aria-label="Quick add GNC Protein Wafer Bar Chocolate">+</button>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="results-empty" id="results-empty">No products matched this search. Try another flavour, brand, or clear the filters.</div>
+    </section>
+
+    <section class="invoice-section" id="checkout">
+      <div class="section-head">
+        <div>
+          <p class="section-tag reveal">Checkout</p>
+          <h2 class="section-title reveal">INVOICE</h2>
+        </div>
+        <p class="section-intro reveal">Fill buyer details and send the order.</p>
+      </div>
+
+      <div class="checkout-grid">
+        <div class="checkout-panel reveal">
+          <h3>Buyer Details</h3>
+          <p class="checkout-sub">We will receive the invoice on WhatsApp and connect with the customer soon after.</p>
+          <form class="checkout-form" id="checkout-form">
+            <div class="field-grid">
+              <div class="field">
+                <label for="buyer-name">Full Name</label>
+                <input id="buyer-name" name="buyerName" type="text" placeholder="Enter buyer name" />
+              </div>
+              <div class="field">
+                <label for="buyer-phone">Phone Number</label>
+                <input id="buyer-phone" name="buyerPhone" type="tel" placeholder="+91 XXXXX XXXXX" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="buyer-address">Delivery Address</label>
+              <textarea id="buyer-address" name="buyerAddress" placeholder="Enter full delivery address"></textarea>
+            </div>
+            <div class="field">
+              <label for="buyer-note">Order Note</label>
+              <textarea id="buyer-note" name="buyerNote" placeholder="Flavour preference, delivery note, landmark, or anything important"></textarea>
+            </div>
+            <div class="checkout-stack">
+              <div class="field">
+                <label>Delivery Preference</label>
+                <div class="choice-grid" id="shipping-options">
+                  <button class="choice-card active js-shipping" type="button" data-shipping="Home Delivery">
+                    <strong>Delivery</strong>
+                    <span>Home Delivery</span>
+                    <small>Share address and we will confirm dispatch on WhatsApp.</small>
+                  </button>
+                  <button class="choice-card js-shipping" type="button" data-shipping="Store Pickup">
+                    <strong>Pickup</strong>
+                    <span>Store Pickup</span>
+                    <small>Reserve now and collect after confirmation.</small>
+                  </button>
+                </div>
+              </div>
+              <div class="field">
+                <label>Payment Preference</label>
+                <div class="choice-grid" id="payment-options">
+                  <button class="choice-card active js-payment" type="button" data-payment="COD">
+                    <strong>Payment</strong>
+                    <span>Cash On Delivery</span>
+                    <small>Customer pays after confirmation and delivery coordination.</small>
+                  </button>
+                  <button class="choice-card js-payment" type="button" data-payment="UPI">
+                    <strong>Payment</strong>
+                    <span>UPI QR Scan</span>
+                    <small>Show your QR image here later and let the buyer scan before sharing the invoice.</small>
+                  </button>
+                </div>
+              </div>
+              <div class="upi-panel" id="upi-panel">
+                <div class="qr-shell">
+                  <img id="upi-qr-image" alt="UPI QR placeholder" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 360'><rect width='360' height='360' fill='white'/><rect x='32' y='32' width='96' height='96' fill='none' stroke='%230C2720' stroke-width='16'/><rect x='48' y='48' width='64' height='64' fill='%230C2720'/><rect x='232' y='32' width='96' height='96' fill='none' stroke='%230C2720' stroke-width='16'/><rect x='248' y='48' width='64' height='64' fill='%230C2720'/><rect x='32' y='232' width='96' height='96' fill='none' stroke='%230C2720' stroke-width='16'/><rect x='48' y='248' width='64' height='64' fill='%230C2720'/><rect x='180' y='168' width='24' height='24' fill='%230C2720'/><rect x='216' y='168' width='24' height='24' fill='%230C2720'/><rect x='180' y='204' width='24' height='24' fill='%230C2720'/><rect x='252' y='204' width='24' height='24' fill='%230C2720'/><rect x='216' y='240' width='24' height='24' fill='%230C2720'/><rect x='252' y='240' width='24' height='24' fill='%230C2720'/><rect x='180' y='276' width='60' height='24' fill='%230C2720'/><text x='180' y='342' text-anchor='middle' font-family='Arial, sans-serif' font-size='24' fill='%230C2720'>Replace with your QR</text></svg>" />
+                </div>
+                <div class="qr-meta">
+                  <strong>UPI Scanner</strong>
+                  <p>The placeholder is ready now. Later you can replace this image with your real payment QR and the page will keep the same layout.</p>
+                </div>
+              </div>
+              <div class="summary-card">
+                <div class="summary-line"><strong>Subtotal</strong><span id="summary-subtotal">Rs 0</span></div>
+                <div class="summary-line"><strong>Shipping</strong><span id="summary-shipping">To Be Confirmed</span></div>
+                <div class="summary-line"><strong>Payment</strong><span id="summary-payment">COD</span></div>
+                <div class="summary-line grand"><strong>Grand Total</strong><span id="summary-total">Rs 0</span></div>
+              </div>
+            </div>
+            <div class="cart-actions">
+              <button class="btn-gold" type="button" id="send-whatsapp-order">Send Order To WhatsApp</button>
+              <button class="btn-outline" type="button" id="clear-cart">Clear Cart</button>
+            </div>
+          </form>
+          <p class="checkout-note">WhatsApp number connected: +91 6291655507</p>
+        </div>
+
+        <div class="invoice-panel reveal">
+          <h3>Professional Invoice</h3>
+          <p class="checkout-sub">The invoice updates automatically from the cart and buyer details.</p>
+          <div class="invoice-sheet">
+            <div class="invoice-head">
+              <div>
+                <div class="invoice-label">From</div>
+                <div class="invoice-value">Da Strength Club Supplements</div>
+              </div>
+              <div>
+                <div class="invoice-label">Invoice No.</div>
+                <div class="invoice-value" id="invoice-number">DASC-001</div>
+              </div>
+              <div>
+                <div class="invoice-label">WhatsApp</div>
+                <div class="invoice-value">+91 6291655507</div>
+              </div>
+            </div>
+            <div class="invoice-head">
+              <div>
+                <div class="invoice-label">Bill To</div>
+                <div class="invoice-value" id="invoice-buyer-name">Buyer name</div>
+              </div>
+              <div>
+                <div class="invoice-label">Phone</div>
+                <div class="invoice-value" id="invoice-buyer-phone">Phone number</div>
+              </div>
+              <div>
+                <div class="invoice-label">Address</div>
+                <div class="invoice-value" id="invoice-buyer-address">Delivery address</div>
+              </div>
+            </div>
+            <div class="invoice-list" id="invoice-list">
+              <div class="invoice-empty">No products added yet.</div>
+            </div>
+            <div class="invoice-summary">
+              <div class="invoice-summary-line"><span>Subtotal</span><strong id="invoice-subtotal">Rs 0</strong></div>
+              <div class="invoice-summary-line"><span>Shipping</span><strong id="invoice-shipping">To Be Confirmed</strong></div>
+              <div class="invoice-summary-line"><span>Payment</span><strong class="invoice-pay" id="invoice-payment">COD</strong></div>
+            </div>
+            <div class="invoice-foot">
+              <div>
+                <div class="invoice-label">Note</div>
+                <div class="invoice-value" id="invoice-buyer-note">No note added.</div>
+              </div>
+              <div class="invoice-total">
+                <strong>Total</strong>
+                <span id="invoice-total">Rs 0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="cart-bar" id="cart-bar">
+    <div class="cart-summary">
+      <div class="cart-stat">
+        <strong>Items</strong>
+        <span id="cart-count">0</span>
+      </div>
+      <div class="cart-stat">
+        <strong>Total</strong>
+        <span id="cart-total">Rs 0</span>
+      </div>
+      <div class="cart-stat">
+        <strong>Status</strong>
+        <span id="cart-status">Cart is empty</span>
+      </div>
+    </div>
+    <div class="cart-actions">
+      <button class="btn-outline" type="button" id="view-checkout">View Invoice</button>
+      <button class="btn-gold" type="button" id="cart-send">Send To WhatsApp</button>
+    </div>
+  </div>
+
+  <div class="detail-modal" id="detail-modal" aria-hidden="true">
+    <div class="detail-panel">
+      <div class="detail-media">
+        <img id="detail-image" src="" alt="">
+      </div>
+      <div class="detail-copy">
+        <div class="detail-top">
+          <div>
+            <div class="detail-label" id="detail-label">Product</div>
+            <h3 class="detail-title" id="detail-title"></h3>
+          </div>
+          <button class="detail-close" id="detail-close" type="button" aria-label="Close detail view">✕</button>
+        </div>
+        <p class="detail-desc" id="detail-desc"></p>
+        <div class="detail-unit-grid">
+          <button class="detail-unit active" id="detail-piece" type="button" data-unit="piece"></button>
+          <button class="detail-unit" id="detail-box" type="button" data-unit="box"></button>
+        </div>
+        <div class="detail-qty-row">
+          <span>Quantity</span>
+          <div class="qty-stepper">
+            <button type="button" id="detail-qty-minus" aria-label="Decrease quantity">−</button>
+            <strong id="detail-qty-value">1</strong>
+            <button type="button" id="detail-qty-plus" aria-label="Increase quantity">+</button>
+          </div>
+        </div>
+        <div class="detail-points" id="detail-points"></div>
+        <div class="detail-actions">
+          <button class="btn-gold" id="detail-add-cart" type="button">Add Selected To Cart</button>
+          <button class="btn-outline" id="detail-go-checkout" type="button">View Invoice</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="brand">
+          <div class="logo-slot"><img src="favicon.png" alt="Da Strength Club" /></div>
+          <span class="brand-name">Da Strength Club</span>
+        </div>
+        <p class="footer-tagline">Strength &amp; Conditioning — Built Different.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Navigate</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#training">Training</a></li>
+            <li><a href="product.html">Supplements</a></li>
+            <li><a href="index.html#enquiry">Enquire</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Categories</h5>
+          <ul>
+            <li>Protein</li>
+            <li>Performance</li>
+            <li>Daily Wellness</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul>
+            <li>dastrengthclub@gmail.com</li>
+            <li><a href="https://www.instagram.com/dastrengthclub/" target="_blank" rel="noopener">@dastrengthclub</a></li>
+            <li><a href="https://wa.me/916291655507" target="_blank" rel="noopener">+91 62916 55507</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Da Strength Club. All rights reserved.</p>
+      <span class="footer-mark">Da Strength Club</span>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('site-header');
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      hamburger.classList.toggle('active', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    document.querySelectorAll('.mobile-nav a').forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && mobileNav.classList.contains('open')) {
+        mobileNav.classList.remove('open');
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((element) => {
+      observer.observe(element);
+    });
+
+    const WHATSAPP_NUMBER = '916291655507';
+    const cart = new Map();
+    const currency = new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      maximumFractionDigits: 0,
+    });
+
+    const cartCount = document.getElementById('cart-count');
+    const cartTotal = document.getElementById('cart-total');
+    const cartStatus = document.getElementById('cart-status');
+    const invoiceList = document.getElementById('invoice-list');
+    const invoiceTotal = document.getElementById('invoice-total');
+    const invoiceBuyerName = document.getElementById('invoice-buyer-name');
+    const invoiceBuyerPhone = document.getElementById('invoice-buyer-phone');
+    const invoiceBuyerAddress = document.getElementById('invoice-buyer-address');
+    const invoiceBuyerNote = document.getElementById('invoice-buyer-note');
+    const invoiceNumber = document.getElementById('invoice-number');
+    const invoiceSubtotal = document.getElementById('invoice-subtotal');
+    const invoiceShipping = document.getElementById('invoice-shipping');
+    const invoicePayment = document.getElementById('invoice-payment');
+    const checkoutSection = document.getElementById('checkout');
+    const buyerNameInput = document.getElementById('buyer-name');
+    const buyerPhoneInput = document.getElementById('buyer-phone');
+    const buyerAddressInput = document.getElementById('buyer-address');
+    const buyerNoteInput = document.getElementById('buyer-note');
+    const productGrid = document.getElementById('product-grid');
+    const productSearch = document.getElementById('product-search');
+    const sortProducts = document.getElementById('sort-products');
+    const filterChips = [...document.querySelectorAll('.filter-chip')];
+    const productCards = [...document.querySelectorAll('.product-box')];
+    const resultsCount = document.getElementById('results-count');
+    const resultsCopy = document.getElementById('results-copy');
+    const resultsEmpty = document.getElementById('results-empty');
+    const mbMainImage = document.getElementById('mb-main-image');
+    const mbTitle = document.getElementById('mb-title');
+    const mbDesc = document.getElementById('mb-desc');
+    const mbBarPrice = document.getElementById('mb-bar-price');
+    const mbBarMrp = document.getElementById('mb-bar-mrp');
+    const mbBoxPrice = document.getElementById('mb-box-price');
+    const mbBoxMrp = document.getElementById('mb-box-mrp');
+    const mbPoints = document.getElementById('mb-points');
+    const mbThumbs = document.getElementById('mb-thumbs');
+    const mbFlavourButtons = [...document.querySelectorAll('.mb-flavour')];
+    const detailModal = document.getElementById('detail-modal');
+    const detailImage = document.getElementById('detail-image');
+    const detailLabel = document.getElementById('detail-label');
+    const detailTitle = document.getElementById('detail-title');
+    const detailDesc = document.getElementById('detail-desc');
+    const detailPoints = document.getElementById('detail-points');
+    const detailPiece = document.getElementById('detail-piece');
+    const detailBox = document.getElementById('detail-box');
+    const detailQtyValue = document.getElementById('detail-qty-value');
+    const detailQtyMinus = document.getElementById('detail-qty-minus');
+    const detailQtyPlus = document.getElementById('detail-qty-plus');
+    const paymentButtons = [...document.querySelectorAll('.js-payment')];
+    const shippingButtons = [...document.querySelectorAll('.js-shipping')];
+    const upiPanel = document.getElementById('upi-panel');
+    const summarySubtotal = document.getElementById('summary-subtotal');
+    const summaryShipping = document.getElementById('summary-shipping');
+    const summaryPayment = document.getElementById('summary-payment');
+    const summaryTotal = document.getElementById('summary-total');
+    let activeDetailCard = null;
+    let activeDetailUnit = 'piece';
+    let activeDetailQty = 1;
+    let paymentMethod = 'COD';
+    let shippingMethod = 'Home Delivery';
+
+    const mbVariants = {
+      'cookies-cream': {
+        product: 'MuscleBlaze Protein Bar Cookies and Cream',
+        size: 'Box of 6',
+        flavour: 'Cookies & Cream · 10g protein',
+        price: 375,
+        barPrice: 70,
+        mrp: 75,
+        boxMrp: 450,
+        title: 'Cookies & Cream',
+        desc: '10g protein flavour bar with vitamins, minerals and fibre for a convenient snack box that helps maintain daily protein intake.',
+        points: [
+          'Supports daily protein intake and helps reduce unhealthy snacking.',
+          'Ideal as a quick snack replacement while travelling or between meals.',
+          'Pricing set to your requested sell price: Rs 375 per box of 6.',
+        ],
+        images: [
+          'https://img6.hkrtcdn.com/40755/prd_4075485-MuscleBlaze-Protein-Bar-10-gm-Protein-6-bars-Cookies-Cream_o.jpg',
+          'https://img10.hkrtcdn.com/40909/prd_4090899-MuscleBlaze-Protein-Bar-10-gm-Protein-6-bars-Cookies-Cream_o.jpg',
+          'https://img2.hkrtcdn.com/40910/prd_4090901-MuscleBlaze-Protein-Bar-10-gm-Protein-6-bars-Cookies-Cream_o.jpg',
+        ],
+      },
+      'choco-cranberry': {
+        product: 'MuscleBlaze Protein Bar Choco Cranberry',
+        size: 'Box of 6',
+        flavour: 'Choco Cranberry · 10g protein',
+        price: 375,
+        barPrice: 70,
+        mrp: 75,
+        boxMrp: 450,
+        title: 'Choco Cranberry',
+        desc: '10g protein bar with a sweet chocolate-cranberry profile, positioned as a handy high-protein snack for busy days.',
+        points: [
+          'Helps you feel full and keeps you away from unhealthy munching.',
+          'Works well as an on-the-go snack replacement or mid-day protein top-up.',
+          'Box pricing follows your requested commercial sell price.',
+        ],
+        images: [
+          'https://img10.hkrtcdn.com/38703/prd_3870289-MuscleBlaze-Protein-Bar-10-gm-Protein-6-bars-Choco-Cranberry_o.jpg',
+          'https://img4.hkrtcdn.com/32291/prd_3229093-MuscleBlaze-Protein-Bar-10-gm-Protein-6-bars-Choco-Cranberry_o.jpg',
+          'https://img6.hkrtcdn.com/32291/prd_3229095-MuscleBlaze-Protein-Bar-10-gm-Protein-6-bars-Choco-Cranberry_o.jpg',
+        ],
+      },
+      'choco-almond': {
+        product: 'MuscleBlaze Protein Bar Choco Almond',
+        size: 'Box of 6',
+        flavour: 'Choco Almond · 10g protein',
+        price: 375,
+        barPrice: 70,
+        mrp: 75,
+        boxMrp: 450,
+        title: 'Choco Almond',
+        desc: '10g protein flavour bar with a chocolate almond profile for a convenient snack that supports daily protein intake.',
+        points: [
+          'Made for on-the-go snacking with a chocolate almond flavour profile.',
+          'Supports daily protein intake while keeping the snack format simple.',
+          'Displayed with your requested sell price for the launch layout.',
+        ],
+        images: [
+          'https://img6.hkrtcdn.com/40459/prd_4045895-MuscleBlaze-Protein-Bar-10-gm-Protein-6-bars-Choco-Almond_o.jpg',
+          'https://img8.hkrtcdn.com/40459/prd_4045897-MuscleBlaze-Protein-Bar-10-gm-Protein-6-bars-Choco-Almond_o.jpg',
+          'https://img10.hkrtcdn.com/40460/prd_4045929-MuscleBlaze-Protein-Bar-10-gm-Protein-6-bars-Choco-Almond_o.jpg',
+        ],
+      },
+    };
+    let mbActiveVariant = 'cookies-cream';
+    let mbActiveImageIndex = 0;
+
+    function formatAmount(value) {
+      return currency.format(value).replace('₹', 'Rs ');
+    }
+
+    function generateInvoiceNumber() {
+      const now = new Date();
+      return `DASC-${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}-${String(now.getHours()).padStart(2, '0')}${String(now.getMinutes()).padStart(2, '0')}`;
+    }
+
+    function getOrderTotals() {
+      const items = [...cart.values()];
+      const subtotal = items.reduce((sum, item) => sum + (item.price * item.qty), 0);
+      return { items, subtotal, total: subtotal };
+    }
+
+    function getShippingLabel() {
+      return shippingMethod === 'Store Pickup' ? 'Store Pickup' : 'Home Delivery';
+    }
+
+    function updateDetailQty() {
+      detailQtyValue.textContent = String(activeDetailQty);
+      detailQtyMinus.disabled = activeDetailQty <= 1;
+    }
+
+    function getDisplayPrice(card) {
+      return Number(card.dataset.piecePrice || card.dataset.price || 0);
+    }
+
+    function updatePaymentUI() {
+      paymentButtons.forEach((button) => {
+        button.classList.toggle('active', button.dataset.payment === paymentMethod);
+      });
+      upiPanel.classList.toggle('visible', paymentMethod === 'UPI');
+    }
+
+    function updateShippingUI() {
+      shippingButtons.forEach((button) => {
+        button.classList.toggle('active', button.dataset.shipping === shippingMethod);
+      });
+    }
+
+    function applyProductFilters() {
+      const searchTerm = productSearch.value.trim().toLowerCase();
+      const activeFilter = filterChips.find((chip) => chip.classList.contains('active'))?.dataset.filter || 'all';
+
+      const sortedCards = [...productCards].sort((a, b) => {
+        if (sortProducts.value === 'price-low') return getDisplayPrice(a) - getDisplayPrice(b);
+        if (sortProducts.value === 'price-high') return getDisplayPrice(b) - getDisplayPrice(a);
+        if (sortProducts.value === 'name') return a.dataset.product.localeCompare(b.dataset.product);
+        return Number(b.dataset.popularity || 0) - Number(a.dataset.popularity || 0);
+      });
+
+      sortedCards.forEach((card) => productGrid.appendChild(card));
+
+      let visibleCount = 0;
+      sortedCards.forEach((card) => {
+        const haystack = `${card.dataset.product} ${card.dataset.flavour} ${card.dataset.brand} ${card.dataset.category}`.toLowerCase();
+        const matchesSearch = !searchTerm || haystack.includes(searchTerm);
+        const matchesFilter = activeFilter === 'all' || card.dataset.category === activeFilter || card.dataset.brand === activeFilter;
+        const visible = matchesSearch && matchesFilter;
+        card.style.display = visible ? '' : 'none';
+        if (visible) visibleCount += 1;
+      });
+
+      resultsCount.textContent = `${visibleCount} product${visibleCount === 1 ? '' : 's'}`;
+      resultsCopy.textContent = activeFilter === 'all' ? 'Live catalogue ready for quick ordering' : `Filtered for ${activeFilter.replace('-', ' ')}`;
+      resultsEmpty.classList.toggle('visible', visibleCount === 0);
+    }
+
+    function renderMbThumbs(variant) {
+      mbThumbs.innerHTML = variant.images.map((image, index) => `
+        <button class="mb-thumb ${index === mbActiveImageIndex ? 'active' : ''}" type="button" data-image-index="${index}" aria-label="Product image ${index + 1}">
+          <img src="${image}" alt="${variant.title} image ${index + 1}">
+        </button>
+      `).join('');
+
+      [...mbThumbs.querySelectorAll('.mb-thumb')].forEach((thumb) => {
+        thumb.addEventListener('click', () => {
+          mbActiveImageIndex = Number(thumb.dataset.imageIndex);
+          renderMbVariant();
+        });
+      });
+    }
+
+    function renderMbVariant() {
+      const variant = mbVariants[mbActiveVariant];
+      mbMainImage.src = variant.images[mbActiveImageIndex];
+      mbMainImage.alt = variant.product;
+      mbTitle.textContent = variant.title;
+      mbDesc.textContent = variant.desc;
+      mbBarPrice.textContent = `Rs ${variant.barPrice}`;
+      mbBarMrp.textContent = `MRP Rs ${variant.mrp}`;
+      mbBoxPrice.textContent = `Rs ${variant.price}`;
+      mbBoxMrp.textContent = `MRP Rs ${variant.boxMrp}`;
+      mbPoints.innerHTML = variant.points.map((point) => `<div>${point}</div>`).join('');
+
+      mbFlavourButtons.forEach((button) => {
+        button.classList.toggle('active', button.dataset.flavourKey === mbActiveVariant);
+      });
+
+      renderMbThumbs(variant);
+    }
+
+    function syncBuyerFields() {
+      invoiceBuyerName.textContent = buyerNameInput.value.trim() || 'Buyer name';
+      invoiceBuyerPhone.textContent = buyerPhoneInput.value.trim() || 'Phone number';
+      invoiceBuyerAddress.textContent = buyerAddressInput.value.trim() || 'Delivery address';
+      invoiceBuyerNote.textContent = buyerNoteInput.value.trim() || 'No note added.';
+    }
+
+    function renderCart() {
+      const { items, subtotal, total } = getOrderTotals();
+      const totalItems = items.reduce((sum, item) => sum + item.qty, 0);
+
+      cartCount.textContent = String(totalItems);
+      cartTotal.textContent = formatAmount(total);
+      cartStatus.textContent = totalItems ? `${totalItems} item${totalItems > 1 ? 's' : ''} ready · ${paymentMethod}` : 'Cart is empty';
+      invoiceTotal.textContent = formatAmount(total);
+      invoiceNumber.textContent = generateInvoiceNumber();
+      invoiceSubtotal.textContent = formatAmount(subtotal);
+      invoiceShipping.textContent = getShippingLabel();
+      invoicePayment.textContent = paymentMethod;
+      summarySubtotal.textContent = formatAmount(subtotal);
+      summaryShipping.textContent = getShippingLabel();
+      summaryPayment.textContent = paymentMethod;
+      summaryTotal.textContent = formatAmount(total);
+
+      if (!items.length) {
+        invoiceList.innerHTML = '<div class="invoice-empty">No products added yet.</div>';
+        return;
+      }
+
+      invoiceList.innerHTML = items.map((item) => `
+        <div class="invoice-line">
+          <div>
+            <div class="invoice-item-name">${item.name}</div>
+            <div class="invoice-item-meta">${item.size} · ${item.flavour}</div>
+          </div>
+          <div class="invoice-qty">
+            <div class="invoice-qty-controls">
+              <button class="invoice-qty-btn js-qty-change" type="button" data-key="${item.key}" data-delta="-1" aria-label="Reduce quantity">−</button>
+              <span>Qty ${item.qty}</span>
+              <button class="invoice-qty-btn js-qty-change" type="button" data-key="${item.key}" data-delta="1" aria-label="Increase quantity">+</button>
+            </div>
+          </div>
+          <div class="invoice-amount">${formatAmount(item.price * item.qty)}</div>
+          <button class="invoice-remove js-remove-line" type="button" data-key="${item.key}" aria-label="Remove ${item.name}">✕</button>
+        </div>
+      `).join('');
+      invoiceList.querySelectorAll('.js-qty-change').forEach((button) => {
+        button.addEventListener('click', () => {
+          changeCartQuantity(button.dataset.key, Number(button.dataset.delta));
+        });
+      });
+      invoiceList.querySelectorAll('.js-remove-line').forEach((button) => {
+        button.addEventListener('click', () => {
+          cart.delete(button.dataset.key);
+          renderCart();
+        });
+      });
+    }
+
+    function addProductToCart({ key, name, price, size, flavour, qty = 1 }) {
+      const existing = cart.get(key);
+      const nextItem = {
+        key,
+        name,
+        price: Number(price),
+        size,
+        flavour,
+        qty: existing ? existing.qty + qty : qty,
+      };
+      cart.set(key, nextItem);
+      renderCart();
+      checkoutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function changeCartQuantity(key, delta) {
+      const existing = cart.get(key);
+      if (!existing) return;
+      const nextQty = existing.qty + delta;
+      if (nextQty <= 0) {
+        cart.delete(key);
+      } else {
+        cart.set(key, { ...existing, qty: nextQty });
+      }
+      renderCart();
+    }
+
+    function addToCart(card) {
+      const selectedUnit = card.dataset.selectedUnit || 'piece';
+      const useBox = selectedUnit === 'box';
+      addProductToCart({
+        key: `${card.dataset.product}::${useBox ? 'box' : 'piece'}`,
+        name: card.dataset.product,
+        price: useBox ? (card.dataset.boxPrice || card.dataset.price) : card.dataset.piecePrice,
+        size: useBox ? (card.dataset.boxSize || card.dataset.size) : card.dataset.pieceSize,
+        flavour: card.dataset.flavour,
+      });
+    }
+
+    function addMbVariantToCart() {
+      const variant = mbVariants[mbActiveVariant];
+      addProductToCart({
+        key: `${variant.product}::box`,
+        name: variant.product,
+        price: variant.price,
+        size: variant.size,
+        flavour: variant.flavour,
+      });
+    }
+
+    function renderDetailUnit(button, label, size, mrp, price, isActive) {
+      button.classList.toggle('active', isActive);
+      button.innerHTML = `
+        <strong>${label}</strong>
+        <span class="u-size">${size}</span>
+        <span class="u-mrp">MRP Rs ${mrp}</span>
+        <span class="u-offer">Rs ${price}</span>
+      `;
+    }
+
+    function openDetail(card) {
+      activeDetailCard = card;
+      activeDetailUnit = 'piece';
+      activeDetailQty = 1;
+      detailImage.src = card.querySelector('.product-box-media img').src;
+      detailImage.alt = card.dataset.product;
+      detailLabel.textContent = card.dataset.flavour;
+      detailTitle.textContent = card.dataset.product;
+      detailDesc.textContent = card.dataset.description || card.querySelector('.product-box-sub').textContent.trim();
+      const details = (card.dataset.details || '').split('|').filter(Boolean);
+      detailPoints.innerHTML = details.map((item) => `<div>${item}</div>`).join('');
+      renderDetailUnit(detailPiece, 'Per Piece', card.dataset.pieceSize, card.dataset.pieceMrp, card.dataset.piecePrice, true);
+      renderDetailUnit(detailBox, 'Box Sale', card.dataset.boxSize, card.dataset.boxMrp, card.dataset.boxPrice, false);
+      updateDetailQty();
+      detailModal.classList.add('open');
+      detailModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDetail() {
+      detailModal.classList.remove('open');
+      detailModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function clearCart() {
+      cart.clear();
+      renderCart();
+    }
+
+    function buildWhatsAppMessage() {
+      const { items, subtotal, total } = getOrderTotals();
+      if (!items.length) {
+        return null;
+      }
+
+      const messageLines = [
+        '*Da Strength Club Supplement Order*',
+        '',
+        `*Invoice No:* ${invoiceNumber.textContent}`,
+        '',
+        '*Buyer Details*',
+        `Name: ${buyerNameInput.value.trim() || 'Not provided'}`,
+        `Phone: ${buyerPhoneInput.value.trim() || 'Not provided'}`,
+        `Address: ${buyerAddressInput.value.trim() || 'Not provided'}`,
+        `Delivery: ${getShippingLabel()}`,
+        `Payment: ${paymentMethod}`,
+        `Note: ${buyerNoteInput.value.trim() || 'No note'}`,
+        '',
+        '*Order Items*',
+        ...items.map((item, index) => `${index + 1}. ${item.name} | Qty: ${item.qty} | ${item.size} | ${item.flavour} | ${formatAmount(item.price * item.qty)}`),
+        '',
+        `Subtotal: ${formatAmount(subtotal)}`,
+        `Grand Total: ${formatAmount(total)}`,
+        paymentMethod === 'UPI' ? 'UPI QR shown on checkout page. Payment to be confirmed manually.' : 'Customer selected Cash On Delivery.',
+        '',
+        'Please confirm this order and connect with the buyer soon.',
+      ];
+
+      return messageLines.join('\n');
+    }
+
+    document.querySelectorAll('.js-add-cart, .js-quick-add').forEach((button) => {
+      button.addEventListener('click', () => {
+        addToCart(button.closest('.product-box'));
+      });
+    });
+
+    document.querySelectorAll('.product-box').forEach((card) => {
+      card.dataset.selectedUnit = 'piece';
+      card.querySelectorAll('.js-card-unit').forEach((button) => {
+        button.addEventListener('click', () => {
+          card.dataset.selectedUnit = button.dataset.unit;
+          card.querySelectorAll('.js-card-unit').forEach((item) => item.classList.toggle('active', item === button));
+        });
+      });
+    });
+
+    document.querySelectorAll('.product-box-media, .product-box-title').forEach((element) => {
+      element.addEventListener('click', () => {
+        openDetail(element.closest('.product-box'));
+      });
+    });
+
+    productSearch.addEventListener('input', applyProductFilters);
+    sortProducts.addEventListener('change', applyProductFilters);
+    filterChips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        filterChips.forEach((item) => item.classList.toggle('active', item === chip));
+        applyProductFilters();
+      });
+    });
+
+    paymentButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        paymentMethod = button.dataset.payment;
+        updatePaymentUI();
+        renderCart();
+      });
+    });
+
+    shippingButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        shippingMethod = button.dataset.shipping;
+        updateShippingUI();
+        renderCart();
+      });
+    });
+
+    detailPiece.addEventListener('click', () => {
+      activeDetailUnit = 'piece';
+      if (!activeDetailCard) return;
+      renderDetailUnit(detailPiece, 'Per Piece', activeDetailCard.dataset.pieceSize, activeDetailCard.dataset.pieceMrp, activeDetailCard.dataset.piecePrice, true);
+      renderDetailUnit(detailBox, 'Box Sale', activeDetailCard.dataset.boxSize, activeDetailCard.dataset.boxMrp, activeDetailCard.dataset.boxPrice, false);
+    });
+
+    detailBox.addEventListener('click', () => {
+      activeDetailUnit = 'box';
+      if (!activeDetailCard) return;
+      renderDetailUnit(detailPiece, 'Per Piece', activeDetailCard.dataset.pieceSize, activeDetailCard.dataset.pieceMrp, activeDetailCard.dataset.piecePrice, false);
+      renderDetailUnit(detailBox, 'Box Sale', activeDetailCard.dataset.boxSize, activeDetailCard.dataset.boxMrp, activeDetailCard.dataset.boxPrice, true);
+    });
+
+    detailQtyMinus.addEventListener('click', () => {
+      activeDetailQty = Math.max(1, activeDetailQty - 1);
+      updateDetailQty();
+    });
+
+    detailQtyPlus.addEventListener('click', () => {
+      activeDetailQty += 1;
+      updateDetailQty();
+    });
+
+    document.getElementById('detail-add-cart').addEventListener('click', () => {
+      if (!activeDetailCard) return;
+      const useBox = activeDetailUnit === 'box';
+      addProductToCart({
+        key: `${activeDetailCard.dataset.product}::${useBox ? 'box' : 'piece'}`,
+        name: activeDetailCard.dataset.product,
+        price: useBox ? activeDetailCard.dataset.boxPrice : activeDetailCard.dataset.piecePrice,
+        size: useBox ? activeDetailCard.dataset.boxSize : activeDetailCard.dataset.pieceSize,
+        flavour: activeDetailCard.dataset.flavour,
+        qty: activeDetailQty,
+      });
+      closeDetail();
+    });
+
+    document.getElementById('detail-go-checkout').addEventListener('click', () => {
+      closeDetail();
+      checkoutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    document.getElementById('detail-close').addEventListener('click', closeDetail);
+    detailModal.addEventListener('click', (event) => {
+      if (event.target === detailModal) closeDetail();
+    });
+
+    mbFlavourButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        mbActiveVariant = button.dataset.flavourKey;
+        mbActiveImageIndex = 0;
+        renderMbVariant();
+      });
+    });
+
+    document.getElementById('mb-prev').addEventListener('click', () => {
+      const variant = mbVariants[mbActiveVariant];
+      mbActiveImageIndex = (mbActiveImageIndex - 1 + variant.images.length) % variant.images.length;
+      renderMbVariant();
+    });
+
+    document.getElementById('mb-next').addEventListener('click', () => {
+      const variant = mbVariants[mbActiveVariant];
+      mbActiveImageIndex = (mbActiveImageIndex + 1) % variant.images.length;
+      renderMbVariant();
+    });
+
+    document.getElementById('mb-add-cart').addEventListener('click', addMbVariantToCart);
+    document.getElementById('mb-view-checkout').addEventListener('click', () => {
+      checkoutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    [buyerNameInput, buyerPhoneInput, buyerAddressInput, buyerNoteInput].forEach((input) => {
+      input.addEventListener('input', syncBuyerFields);
+    });
+
+    document.getElementById('view-checkout').addEventListener('click', () => {
+      checkoutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    document.getElementById('clear-cart').addEventListener('click', clearCart);
+
+    function sendOrderToWhatsApp() {
+      const message = buildWhatsAppMessage();
+      if (!message) {
+        cartStatus.textContent = 'Add at least one product first';
+        checkoutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return;
+      }
+
+      syncBuyerFields();
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank', 'noopener');
+    }
+
+    document.getElementById('send-whatsapp-order').addEventListener('click', sendOrderToWhatsApp);
+    document.getElementById('cart-send').addEventListener('click', sendOrderToWhatsApp);
+
+    syncBuyerFields();
+    updatePaymentUI();
+    updateShippingUI();
+    applyProductFilters();
+    updateDetailQty();
+    renderMbVariant();
+    renderCart();
+  </script>
+</body>
+</html>
