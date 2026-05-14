@@ -67,46 +67,6 @@
     });
   }
 
-  function addProgramOptions() {
-    const select = document.getElementById("f-interest");
-    if (!select) return;
-
-    const existingOptions = new Set(
-      Array.from(select.options).map((option) => option.textContent.trim().toUpperCase())
-    );
-
-    programs.forEach((program) => {
-      const label = program.alt;
-      if (!existingOptions.has(label.toUpperCase())) {
-        const option = document.createElement("option");
-        option.textContent = label;
-        const otherOption = Array.from(select.options).find((item) => item.textContent.trim() === "Other");
-        select.insertBefore(option, otherOption || null);
-      }
-    });
-  }
-
-  function addFooterPrograms() {
-    const trainingColumn = Array.from(document.querySelectorAll(".footer-col")).find((column) => {
-      const heading = column.querySelector("h5");
-      return heading && heading.textContent.trim().toUpperCase() === "TRAINING";
-    });
-    const list = trainingColumn && trainingColumn.querySelector("ul");
-    if (!list) return;
-
-    const existingItems = new Set(
-      Array.from(list.querySelectorAll("li")).map((item) => item.textContent.trim().toUpperCase())
-    );
-
-    programs.forEach((program) => {
-      if (!existingItems.has(program.alt.toUpperCase())) {
-        const item = document.createElement("li");
-        item.textContent = program.alt;
-        list.appendChild(item);
-      }
-    });
-  }
-
   function revealNewCards() {
     if (!("IntersectionObserver" in window)) {
       document.querySelectorAll(".training-cards .reveal").forEach((el) => el.classList.add("visible"));
@@ -127,8 +87,6 @@
 
   function initExpandedTraining() {
     addTrainingCards();
-    addProgramOptions();
-    addFooterPrograms();
     revealNewCards();
   }
 
